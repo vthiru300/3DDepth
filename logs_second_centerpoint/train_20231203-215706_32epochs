@@ -1,0 +1,644 @@
+2023-12-03 21:57:06,523   INFO  **********************Start logging**********************
+2023-12-03 21:57:06,573   INFO  Training with a single process
+2023-12-03 21:57:06,573   INFO  cfg_file         mydetector3d/tools/cfgs/waymokitti_models/centerpoint_second.yaml
+2023-12-03 21:57:06,573   INFO  batch_size       2
+2023-12-03 21:57:06,573   INFO  epochs           32
+2023-12-03 21:57:06,573   INFO  workers          2
+2023-12-03 21:57:06,573   INFO  extra_tag        varsha2
+2023-12-03 21:57:06,573   INFO  ckpt             /home/student/models/waymokitti_models/centerpoint_second/varsha2/ckpt/latest_model.pth
+2023-12-03 21:57:06,574   INFO  outputfolder     /home/student/models
+2023-12-03 21:57:06,574   INFO  pretrained_model None
+2023-12-03 21:57:06,574   INFO  launcher         none
+2023-12-03 21:57:06,574   INFO  tcp_port         18888
+2023-12-03 21:57:06,574   INFO  sync_bn          False
+2023-12-03 21:57:06,574   INFO  fix_random_seed  False
+2023-12-03 21:57:06,574   INFO  ckpt_save_interval 8
+2023-12-03 21:57:06,574   INFO  local_rank       0
+2023-12-03 21:57:06,574   INFO  max_ckpt_save_num 30
+2023-12-03 21:57:06,574   INFO  merge_all_iters_to_one_epoch False
+2023-12-03 21:57:06,574   INFO  set_cfgs         None
+2023-12-03 21:57:06,574   INFO  max_waiting_mins 0
+2023-12-03 21:57:06,574   INFO  start_epoch      0
+2023-12-03 21:57:06,574   INFO  num_epochs_to_eval 0
+2023-12-03 21:57:06,574   INFO  save_to_file     False
+2023-12-03 21:57:06,574   INFO  use_tqdm_to_record False
+2023-12-03 21:57:06,575   INFO  logger_iter_interval 50
+2023-12-03 21:57:06,575   INFO  ckpt_save_time_interval 300
+2023-12-03 21:57:06,575   INFO  wo_gpu_stat      False
+2023-12-03 21:57:06,575   INFO  use_amp          False
+2023-12-03 21:57:06,575   INFO  cfg.ROOT_DIR: /home/student/varsha/3DDepth
+2023-12-03 21:57:06,575   INFO  cfg.LOCAL_RANK: 0
+2023-12-03 21:57:06,575   INFO  cfg.CLASS_NAMES: ['Car', 'Pedestrian', 'Cyclist']
+2023-12-03 21:57:06,575   INFO  ----------- DATA_CONFIG -----------
+2023-12-03 21:57:06,575   INFO  cfg.DATA_CONFIG.DATASET: WaymoKittiDataset
+2023-12-03 21:57:06,575   INFO  cfg.DATA_CONFIG.DATA_PATH: /DATA5T/Dataset/WaymoKitti/4c_train5678
+2023-12-03 21:57:06,575   INFO  cfg.DATA_CONFIG.POINT_CLOUD_RANGE: [-75.2, -75.2, -2, 75.2, 75.2, 4]
+2023-12-03 21:57:06,575   INFO  ----------- MAP_CLASS_TO_KITTI -----------
+2023-12-03 21:57:06,575   INFO  cfg.DATA_CONFIG.MAP_CLASS_TO_KITTI.Car: Car
+2023-12-03 21:57:06,575   INFO  cfg.DATA_CONFIG.MAP_CLASS_TO_KITTI.Pedestrian: Pedestrian
+2023-12-03 21:57:06,575   INFO  cfg.DATA_CONFIG.MAP_CLASS_TO_KITTI.Cyclist: Cyclist
+2023-12-03 21:57:06,575   INFO  ----------- DATA_SPLIT -----------
+2023-12-03 21:57:06,576   INFO  cfg.DATA_CONFIG.DATA_SPLIT.train: train
+2023-12-03 21:57:06,576   INFO  cfg.DATA_CONFIG.DATA_SPLIT.test: val
+2023-12-03 21:57:06,576   INFO  ----------- INFO_PATH -----------
+2023-12-03 21:57:06,576   INFO  cfg.DATA_CONFIG.INFO_PATH.train: ['waymo_infos_train.pkl']
+2023-12-03 21:57:06,576   INFO  cfg.DATA_CONFIG.INFO_PATH.test: ['waymo_infos_val.pkl']
+2023-12-03 21:57:06,576   INFO  cfg.DATA_CONFIG.GET_ITEM_LIST: ['points']
+2023-12-03 21:57:06,576   INFO  cfg.DATA_CONFIG.FOV_POINTS_ONLY: False
+2023-12-03 21:57:06,576   INFO  ----------- DATA_AUGMENTOR -----------
+2023-12-03 21:57:06,576   INFO  cfg.DATA_CONFIG.DATA_AUGMENTOR.DISABLE_AUG_LIST: ['placeholder']
+2023-12-03 21:57:06,576   INFO  cfg.DATA_CONFIG.DATA_AUGMENTOR.AUG_CONFIG_LIST: [{'NAME': 'gt_sampling', 'USE_ROAD_PLANE': False, 'DB_INFO_PATH': ['waymo_dbinfos_train.pkl'], 'PREPARE': {'filter_by_min_points': ['Car:5', 'Pedestrian:5', 'Cyclist:5', 'Sign:5'], 'filter_by_difficulty': [-1]}, 'SAMPLE_GROUPS': ['Car:20', 'Pedestrian:15', 'Cyclist:15', 'Sign:10'], 'NUM_POINT_FEATURES': 4, 'DATABASE_WITH_FAKELIDAR': False, 'REMOVE_EXTRA_WIDTH': [0.0, 0.0, 0.0], 'LIMIT_WHOLE_SCENE': True}, {'NAME': 'random_world_flip', 'ALONG_AXIS_LIST': ['x']}, {'NAME': 'random_world_rotation', 'WORLD_ROT_ANGLE': [-0.78539816, 0.78539816]}, {'NAME': 'random_world_scaling', 'WORLD_SCALE_RANGE': [0.95, 1.05]}]
+2023-12-03 21:57:06,576   INFO  ----------- POINT_FEATURE_ENCODING -----------
+2023-12-03 21:57:06,576   INFO  cfg.DATA_CONFIG.POINT_FEATURE_ENCODING.encoding_type: absolute_coordinates_encoding
+2023-12-03 21:57:06,576   INFO  cfg.DATA_CONFIG.POINT_FEATURE_ENCODING.used_feature_list: ['x', 'y', 'z', 'intensity']
+2023-12-03 21:57:06,576   INFO  cfg.DATA_CONFIG.POINT_FEATURE_ENCODING.src_feature_list: ['x', 'y', 'z', 'intensity']
+2023-12-03 21:57:06,576   INFO  cfg.DATA_CONFIG.DATA_PROCESSOR: [{'NAME': 'mask_points_and_boxes_outside_range', 'REMOVE_OUTSIDE_BOXES': True}, {'NAME': 'shuffle_points', 'SHUFFLE_ENABLED': {'train': True, 'test': False}}, {'NAME': 'transform_points_to_voxels', 'VOXEL_SIZE': [0.1, 0.1, 0.15], 'MAX_POINTS_PER_VOXEL': 5, 'MAX_NUMBER_OF_VOXELS': {'train': 150000, 'test': 150000}}]
+2023-12-03 21:57:06,577   INFO  cfg.DATA_CONFIG._BASE_CONFIG_: mydetector3d/tools/cfgs/dataset_configs/waymokitti_dataset.yaml
+2023-12-03 21:57:06,577   INFO  ----------- MODEL -----------
+2023-12-03 21:57:06,577   INFO  cfg.MODEL.NAME: SECONDNet
+2023-12-03 21:57:06,577   INFO  ----------- VFE -----------
+2023-12-03 21:57:06,577   INFO  cfg.MODEL.VFE.NAME: MeanVFE
+2023-12-03 21:57:06,577   INFO  ----------- BACKBONE_3D -----------
+2023-12-03 21:57:06,577   INFO  cfg.MODEL.BACKBONE_3D.NAME: VoxelBackBone8x
+2023-12-03 21:57:06,577   INFO  ----------- MAP_TO_BEV -----------
+2023-12-03 21:57:06,577   INFO  cfg.MODEL.MAP_TO_BEV.NAME: HeightCompression
+2023-12-03 21:57:06,577   INFO  cfg.MODEL.MAP_TO_BEV.NUM_BEV_FEATURES: 256
+2023-12-03 21:57:06,577   INFO  ----------- BACKBONE_2D -----------
+2023-12-03 21:57:06,577   INFO  cfg.MODEL.BACKBONE_2D.NAME: BaseBEVBackbone
+2023-12-03 21:57:06,577   INFO  cfg.MODEL.BACKBONE_2D.LAYER_NUMS: [5, 5]
+2023-12-03 21:57:06,577   INFO  cfg.MODEL.BACKBONE_2D.LAYER_STRIDES: [1, 2]
+2023-12-03 21:57:06,577   INFO  cfg.MODEL.BACKBONE_2D.NUM_FILTERS: [128, 256]
+2023-12-03 21:57:06,577   INFO  cfg.MODEL.BACKBONE_2D.UPSAMPLE_STRIDES: [1, 2]
+2023-12-03 21:57:06,578   INFO  cfg.MODEL.BACKBONE_2D.NUM_UPSAMPLE_FILTERS: [256, 256]
+2023-12-03 21:57:06,578   INFO  ----------- DENSE_HEAD -----------
+2023-12-03 21:57:06,578   INFO  cfg.MODEL.DENSE_HEAD.NAME: CenterHead
+2023-12-03 21:57:06,578   INFO  cfg.MODEL.DENSE_HEAD.CLASS_AGNOSTIC: False
+2023-12-03 21:57:06,578   INFO  cfg.MODEL.DENSE_HEAD.CLASS_NAMES_EACH_HEAD: [['Car', 'Pedestrian', 'Cyclist']]
+2023-12-03 21:57:06,578   INFO  cfg.MODEL.DENSE_HEAD.SHARED_CONV_CHANNEL: 64
+2023-12-03 21:57:06,578   INFO  cfg.MODEL.DENSE_HEAD.USE_BIAS_BEFORE_NORM: True
+2023-12-03 21:57:06,578   INFO  cfg.MODEL.DENSE_HEAD.NUM_HM_CONV: 2
+2023-12-03 21:57:06,578   INFO  ----------- SEPARATE_HEAD_CFG -----------
+2023-12-03 21:57:06,578   INFO  cfg.MODEL.DENSE_HEAD.SEPARATE_HEAD_CFG.HEAD_ORDER: ['center', 'center_z', 'dim', 'rot']
+2023-12-03 21:57:06,578   INFO  ----------- HEAD_DICT -----------
+2023-12-03 21:57:06,578   INFO  ----------- center -----------
+2023-12-03 21:57:06,578   INFO  cfg.MODEL.DENSE_HEAD.SEPARATE_HEAD_CFG.HEAD_DICT.center.out_channels: 2
+2023-12-03 21:57:06,578   INFO  cfg.MODEL.DENSE_HEAD.SEPARATE_HEAD_CFG.HEAD_DICT.center.num_conv: 2
+2023-12-03 21:57:06,578   INFO  ----------- center_z -----------
+2023-12-03 21:57:06,578   INFO  cfg.MODEL.DENSE_HEAD.SEPARATE_HEAD_CFG.HEAD_DICT.center_z.out_channels: 1
+2023-12-03 21:57:06,579   INFO  cfg.MODEL.DENSE_HEAD.SEPARATE_HEAD_CFG.HEAD_DICT.center_z.num_conv: 2
+2023-12-03 21:57:06,579   INFO  ----------- dim -----------
+2023-12-03 21:57:06,579   INFO  cfg.MODEL.DENSE_HEAD.SEPARATE_HEAD_CFG.HEAD_DICT.dim.out_channels: 3
+2023-12-03 21:57:06,579   INFO  cfg.MODEL.DENSE_HEAD.SEPARATE_HEAD_CFG.HEAD_DICT.dim.num_conv: 2
+2023-12-03 21:57:06,579   INFO  ----------- rot -----------
+2023-12-03 21:57:06,579   INFO  cfg.MODEL.DENSE_HEAD.SEPARATE_HEAD_CFG.HEAD_DICT.rot.out_channels: 2
+2023-12-03 21:57:06,579   INFO  cfg.MODEL.DENSE_HEAD.SEPARATE_HEAD_CFG.HEAD_DICT.rot.num_conv: 2
+2023-12-03 21:57:06,579   INFO  ----------- TARGET_ASSIGNER_CONFIG -----------
+2023-12-03 21:57:06,579   INFO  cfg.MODEL.DENSE_HEAD.TARGET_ASSIGNER_CONFIG.FEATURE_MAP_STRIDE: 1
+2023-12-03 21:57:06,579   INFO  cfg.MODEL.DENSE_HEAD.TARGET_ASSIGNER_CONFIG.NUM_MAX_OBJS: 500
+2023-12-03 21:57:06,579   INFO  cfg.MODEL.DENSE_HEAD.TARGET_ASSIGNER_CONFIG.GAUSSIAN_OVERLAP: 0.1
+2023-12-03 21:57:06,579   INFO  cfg.MODEL.DENSE_HEAD.TARGET_ASSIGNER_CONFIG.MIN_RADIUS: 2
+2023-12-03 21:57:06,579   INFO  ----------- LOSS_CONFIG -----------
+2023-12-03 21:57:06,579   INFO  ----------- LOSS_WEIGHTS -----------
+2023-12-03 21:57:06,579   INFO  cfg.MODEL.DENSE_HEAD.LOSS_CONFIG.LOSS_WEIGHTS.cls_weight: 1.0
+2023-12-03 21:57:06,579   INFO  cfg.MODEL.DENSE_HEAD.LOSS_CONFIG.LOSS_WEIGHTS.loc_weight: 2.0
+2023-12-03 21:57:06,580   INFO  cfg.MODEL.DENSE_HEAD.LOSS_CONFIG.LOSS_WEIGHTS.code_weights: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+2023-12-03 21:57:06,580   INFO  ----------- POST_PROCESSING -----------
+2023-12-03 21:57:06,580   INFO  cfg.MODEL.DENSE_HEAD.POST_PROCESSING.SCORE_THRESH: 0.1
+2023-12-03 21:57:06,580   INFO  cfg.MODEL.DENSE_HEAD.POST_PROCESSING.POST_CENTER_LIMIT_RANGE: [-80, -80, -10.0, 80, 80, 10.0]
+2023-12-03 21:57:06,580   INFO  cfg.MODEL.DENSE_HEAD.POST_PROCESSING.MAX_OBJ_PER_SAMPLE: 500
+2023-12-03 21:57:06,580   INFO  ----------- NMS_CONFIG -----------
+2023-12-03 21:57:06,580   INFO  cfg.MODEL.DENSE_HEAD.POST_PROCESSING.NMS_CONFIG.NMS_TYPE: nms_gpu
+2023-12-03 21:57:06,580   INFO  cfg.MODEL.DENSE_HEAD.POST_PROCESSING.NMS_CONFIG.NMS_THRESH: 0.7
+2023-12-03 21:57:06,580   INFO  cfg.MODEL.DENSE_HEAD.POST_PROCESSING.NMS_CONFIG.NMS_PRE_MAXSIZE: 4096
+2023-12-03 21:57:06,580   INFO  cfg.MODEL.DENSE_HEAD.POST_PROCESSING.NMS_CONFIG.NMS_POST_MAXSIZE: 500
+2023-12-03 21:57:06,580   INFO  ----------- POST_PROCESSING -----------
+2023-12-03 21:57:06,580   INFO  cfg.MODEL.POST_PROCESSING.RECALL_THRESH_LIST: [0.3, 0.5, 0.7]
+2023-12-03 21:57:06,580   INFO  cfg.MODEL.POST_PROCESSING.EVAL_METRIC: kitti
+2023-12-03 21:57:06,580   INFO  ----------- OPTIMIZATION -----------
+2023-12-03 21:57:06,580   INFO  cfg.OPTIMIZATION.BATCH_SIZE_PER_GPU: 4
+2023-12-03 21:57:06,580   INFO  cfg.OPTIMIZATION.NUM_EPOCHS: 80
+2023-12-03 21:57:06,581   INFO  cfg.OPTIMIZATION.OPTIMIZER: adam_onecycle
+2023-12-03 21:57:06,581   INFO  cfg.OPTIMIZATION.LR: 0.003
+2023-12-03 21:57:06,581   INFO  cfg.OPTIMIZATION.WEIGHT_DECAY: 0.01
+2023-12-03 21:57:06,581   INFO  cfg.OPTIMIZATION.MOMENTUM: 0.9
+2023-12-03 21:57:06,581   INFO  cfg.OPTIMIZATION.MOMS: [0.95, 0.85]
+2023-12-03 21:57:06,581   INFO  cfg.OPTIMIZATION.PCT_START: 0.4
+2023-12-03 21:57:06,581   INFO  cfg.OPTIMIZATION.DIV_FACTOR: 10
+2023-12-03 21:57:06,581   INFO  cfg.OPTIMIZATION.DECAY_STEP_LIST: [35, 45]
+2023-12-03 21:57:06,581   INFO  cfg.OPTIMIZATION.LR_DECAY: 0.1
+2023-12-03 21:57:06,581   INFO  cfg.OPTIMIZATION.LR_CLIP: 1e-07
+2023-12-03 21:57:06,581   INFO  cfg.OPTIMIZATION.LR_WARMUP: False
+2023-12-03 21:57:06,581   INFO  cfg.OPTIMIZATION.WARMUP_EPOCH: 1
+2023-12-03 21:57:06,581   INFO  cfg.OPTIMIZATION.GRAD_NORM_CLIP: 10
+2023-12-03 21:57:06,581   INFO  cfg.TAG: centerpoint_second
+2023-12-03 21:57:06,581   INFO  cfg.EXP_GROUP_PATH: waymokitti_models
+2023-12-03 21:57:06,586   INFO  ----------- Create dataloader & network & optimizer -----------
+2023-12-03 21:57:13,384   INFO  Database filter by min points Car: 280875 => 229664
+2023-12-03 21:57:13,431   INFO  Database filter by min points Pedestrian: 116786 => 87812
+2023-12-03 21:57:13,435   INFO  Database filter by min points Cyclist: 5296 => 4390
+2023-12-03 21:57:14,490   INFO  Database filter by difficulty Car: 229664 => 229664
+2023-12-03 21:57:14,895   INFO  Database filter by difficulty Pedestrian: 87812 => 87812
+2023-12-03 21:57:14,915   INFO  Database filter by difficulty Cyclist: 4390 => 4390
+2023-12-03 21:57:15,140   INFO  Loading WaymoKITTI dataset
+2023-12-03 21:57:18,133   INFO  Total samples for Waymo KITTI dataset: 13632
+2023-12-03 21:57:18,467   INFO  ==> Loading parameters from checkpoint /home/student/models/waymokitti_models/centerpoint_second/varsha2/ckpt/latest_model.pth to GPU
+2023-12-03 21:57:18,573   INFO  ==> Loading optimizer parameters from checkpoint /home/student/models/waymokitti_models/centerpoint_second/varsha2/ckpt/latest_model.pth to GPU
+2023-12-03 21:57:18,576   INFO  ==> Done
+2023-12-03 21:57:18,579   INFO  ----------- Model SECONDNet created, param count: 5775371 -----------
+2023-12-03 21:57:18,580   INFO  SECONDNet(
+  (vfe): MeanVFE()
+  (backbone_3d): VoxelBackBone8x(
+    (conv_input): SparseSequential(
+      (0): SubMConv3d(4, 16, kernel_size=[3, 3, 3], stride=[1, 1, 1], padding=[1, 1, 1], dilation=[1, 1, 1], output_padding=[0, 0, 0], bias=False, algo=ConvAlgo.MaskImplicitGemm)
+      (1): BatchNorm1d(16, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+      (2): ReLU()
+    )
+    (conv1): SparseSequential(
+      (0): SparseSequential(
+        (0): SubMConv3d(16, 16, kernel_size=[3, 3, 3], stride=[1, 1, 1], padding=[0, 0, 0], dilation=[1, 1, 1], output_padding=[0, 0, 0], bias=False, algo=ConvAlgo.MaskImplicitGemm)
+        (1): BatchNorm1d(16, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (2): ReLU()
+      )
+    )
+    (conv2): SparseSequential(
+      (0): SparseSequential(
+        (0): SparseConv3d(16, 32, kernel_size=[3, 3, 3], stride=[2, 2, 2], padding=[1, 1, 1], dilation=[1, 1, 1], output_padding=[0, 0, 0], bias=False, algo=ConvAlgo.MaskImplicitGemm)
+        (1): BatchNorm1d(32, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (2): ReLU()
+      )
+      (1): SparseSequential(
+        (0): SubMConv3d(32, 32, kernel_size=[3, 3, 3], stride=[1, 1, 1], padding=[0, 0, 0], dilation=[1, 1, 1], output_padding=[0, 0, 0], bias=False, algo=ConvAlgo.MaskImplicitGemm)
+        (1): BatchNorm1d(32, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (2): ReLU()
+      )
+      (2): SparseSequential(
+        (0): SubMConv3d(32, 32, kernel_size=[3, 3, 3], stride=[1, 1, 1], padding=[0, 0, 0], dilation=[1, 1, 1], output_padding=[0, 0, 0], bias=False, algo=ConvAlgo.MaskImplicitGemm)
+        (1): BatchNorm1d(32, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (2): ReLU()
+      )
+    )
+    (conv3): SparseSequential(
+      (0): SparseSequential(
+        (0): SparseConv3d(32, 64, kernel_size=[3, 3, 3], stride=[2, 2, 2], padding=[1, 1, 1], dilation=[1, 1, 1], output_padding=[0, 0, 0], bias=False, algo=ConvAlgo.MaskImplicitGemm)
+        (1): BatchNorm1d(64, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (2): ReLU()
+      )
+      (1): SparseSequential(
+        (0): SubMConv3d(64, 64, kernel_size=[3, 3, 3], stride=[1, 1, 1], padding=[0, 0, 0], dilation=[1, 1, 1], output_padding=[0, 0, 0], bias=False, algo=ConvAlgo.MaskImplicitGemm)
+        (1): BatchNorm1d(64, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (2): ReLU()
+      )
+      (2): SparseSequential(
+        (0): SubMConv3d(64, 64, kernel_size=[3, 3, 3], stride=[1, 1, 1], padding=[0, 0, 0], dilation=[1, 1, 1], output_padding=[0, 0, 0], bias=False, algo=ConvAlgo.MaskImplicitGemm)
+        (1): BatchNorm1d(64, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (2): ReLU()
+      )
+    )
+    (conv4): SparseSequential(
+      (0): SparseSequential(
+        (0): SparseConv3d(64, 64, kernel_size=[3, 3, 3], stride=[2, 2, 2], padding=[0, 1, 1], dilation=[1, 1, 1], output_padding=[0, 0, 0], bias=False, algo=ConvAlgo.MaskImplicitGemm)
+        (1): BatchNorm1d(64, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (2): ReLU()
+      )
+      (1): SparseSequential(
+        (0): SubMConv3d(64, 64, kernel_size=[3, 3, 3], stride=[1, 1, 1], padding=[0, 0, 0], dilation=[1, 1, 1], output_padding=[0, 0, 0], bias=False, algo=ConvAlgo.MaskImplicitGemm)
+        (1): BatchNorm1d(64, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (2): ReLU()
+      )
+      (2): SparseSequential(
+        (0): SubMConv3d(64, 64, kernel_size=[3, 3, 3], stride=[1, 1, 1], padding=[0, 0, 0], dilation=[1, 1, 1], output_padding=[0, 0, 0], bias=False, algo=ConvAlgo.MaskImplicitGemm)
+        (1): BatchNorm1d(64, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (2): ReLU()
+      )
+    )
+    (conv_out): SparseSequential(
+      (0): SparseConv3d(64, 128, kernel_size=[3, 1, 1], stride=[2, 1, 1], padding=[0, 0, 0], dilation=[1, 1, 1], output_padding=[0, 0, 0], bias=False, algo=ConvAlgo.MaskImplicitGemm)
+      (1): BatchNorm1d(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+      (2): ReLU()
+    )
+  )
+  (map_to_bev_module): HeightCompression()
+  (pfe): None
+  (backbone_2d): BaseBEVBackbone(
+    (blocks): ModuleList(
+      (0): Sequential(
+        (0): ZeroPad2d((1, 1, 1, 1))
+        (1): Conv2d(256, 128, kernel_size=(3, 3), stride=(1, 1), bias=False)
+        (2): BatchNorm2d(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (3): ReLU()
+        (4): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (5): BatchNorm2d(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (6): ReLU()
+        (7): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (8): BatchNorm2d(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (9): ReLU()
+        (10): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (11): BatchNorm2d(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (12): ReLU()
+        (13): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (14): BatchNorm2d(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (15): ReLU()
+        (16): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (17): BatchNorm2d(128, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (18): ReLU()
+      )
+      (1): Sequential(
+        (0): ZeroPad2d((1, 1, 1, 1))
+        (1): Conv2d(128, 256, kernel_size=(3, 3), stride=(2, 2), bias=False)
+        (2): BatchNorm2d(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (3): ReLU()
+        (4): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (5): BatchNorm2d(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (6): ReLU()
+        (7): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (8): BatchNorm2d(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (9): ReLU()
+        (10): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (11): BatchNorm2d(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (12): ReLU()
+        (13): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (14): BatchNorm2d(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (15): ReLU()
+        (16): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (17): BatchNorm2d(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (18): ReLU()
+      )
+    )
+    (deblocks): ModuleList(
+      (0): Sequential(
+        (0): ConvTranspose2d(128, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (1): BatchNorm2d(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (2): ReLU()
+      )
+      (1): Sequential(
+        (0): ConvTranspose2d(256, 256, kernel_size=(2, 2), stride=(2, 2), bias=False)
+        (1): BatchNorm2d(256, eps=0.001, momentum=0.01, affine=True, track_running_stats=True)
+        (2): ReLU()
+      )
+    )
+  )
+  (dense_head): CenterHead(
+    (shared_conv): Sequential(
+      (0): Conv2d(512, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): ReLU()
+    )
+    (heads_list): ModuleList(
+      (0): SeparateHead(
+        (center): Sequential(
+          (0): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (2): ReLU()
+          )
+          (1): Conv2d(64, 2, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        )
+        (center_z): Sequential(
+          (0): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (2): ReLU()
+          )
+          (1): Conv2d(64, 1, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        )
+        (dim): Sequential(
+          (0): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (2): ReLU()
+          )
+          (1): Conv2d(64, 3, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        )
+        (rot): Sequential(
+          (0): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (2): ReLU()
+          )
+          (1): Conv2d(64, 2, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        )
+        (hm): Sequential(
+          (0): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (2): ReLU()
+          )
+          (1): Conv2d(64, 3, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        )
+      )
+    )
+    (hm_loss_func): FocalLossCenterNet()
+    (reg_loss_func): RegLossCenterNet()
+  )
+  (point_head): None
+  (roi_head): None
+)
+2023-12-03 21:57:18,584   INFO  **********************Start training waymokitti_models/centerpoint_second(varsha2)**********************
+2023-12-03 21:57:42,021   INFO  Train:   30/32 ( 94%) [6479/6816 ( 95%)]  Loss: 7.270 (7.27)  LR: 8.358e-05  Time cost: 00:23/2:10:05 [00:23/89:52:43]  Acc_iter 204144      Data time: 1.35(1.35)  Forward time: 21.81(21.81)  Batch time: 23.16(23.16)
+2023-12-03 21:57:44,144   INFO  Train:   30/32 ( 94%) [6485/6816 ( 95%)]  Loss: 7.396 (7.18)  LR: 8.351e-05  Time cost: 00:25/19:55 [00:25/14:00:39]  Acc_iter 204150      Data time: 0.11(0.28)  Forward time: 0.24(3.32)  Batch time: 0.35(3.60)
+2023-12-03 21:58:01,396   INFO  Train:   30/32 ( 94%) [6535/6816 ( 96%)]  Loss: 7.704 (7.31)  LR: 8.292e-05  Time cost: 00:42/03:29 [00:42/2:53:03]  Acc_iter 204200      Data time: 0.11(0.13)  Forward time: 0.25(0.62)  Batch time: 0.35(0.74)
+2023-12-03 21:58:20,240   INFO  Train:   30/32 ( 94%) [6585/6816 ( 97%)]  Loss: 7.209 (7.50)  LR: 8.233e-05  Time cost: 01:01/02:12 [01:01/2:12:32]  Acc_iter 204250      Data time: 0.10(0.12)  Forward time: 0.26(0.45)  Batch time: 0.37(0.57)
+2023-12-03 21:58:36,652   INFO  Train:   30/32 ( 94%) [6635/6816 ( 97%)]  Loss: 6.642 (7.43)  LR: 8.174e-05  Time cost: 01:17/01:29 [01:18/1:54:04]  Acc_iter 204300      Data time: 0.10(0.11)  Forward time: 0.20(0.38)  Batch time: 0.30(0.49)
+2023-12-03 21:58:57,210   INFO  Train:   30/32 ( 94%) [6685/6816 ( 98%)]  Loss: 8.325 (7.53)  LR: 8.116e-05  Time cost: 01:38/01:02 [01:38/1:48:59]  Acc_iter 204350      Data time: 0.12(0.11)  Forward time: 0.25(0.37)  Batch time: 0.36(0.47)
+2023-12-03 21:59:15,807   INFO  Train:   30/32 ( 94%) [6735/6816 ( 99%)]  Loss: 6.937 (7.50)  LR: 8.057e-05  Time cost: 01:56/00:36 [01:57/1:44:00]  Acc_iter 204400      Data time: 0.11(0.10)  Forward time: 0.23(0.35)  Batch time: 0.33(0.45)
+2023-12-03 21:59:32,839   INFO  Train:   30/32 ( 94%) [6785/6816 (100%)]  Loss: 7.592 (7.45)  LR: 7.999e-05  Time cost: 02:13/00:13 [02:14/1:39:22]  Acc_iter 204450      Data time: 0.11(0.10)  Forward time: 0.21(0.33)  Batch time: 0.32(0.44)
+2023-12-03 21:59:43,836   INFO  Train:   30/32 ( 94%) [6815/6816 (100%)]  Loss: 7.947 (7.45)  LR: 7.964e-05  Time cost: 02:24/00:00 [02:25/1:37:44]  Acc_iter 204480      Data time: 0.10(0.10)  Forward time: 0.29(0.33)  Batch time: 0.39(0.43)
+2023-12-03 21:59:45,740   INFO  Train:   31/32 ( 97%) [   0/6816 (  0%)]  Loss: 6.935 (6.94)  LR: 7.963e-05  Time cost: 00:01/3:13:00 [02:27/6:26:01]  Acc_iter 204481      Data time: 1.35(1.35)  Forward time: 0.24(0.24)  Batch time: 1.59(1.59)
+2023-12-03 21:59:52,275   INFO  Train:   31/32 ( 97%) [  19/6816 (  0%)]  Loss: 7.108 (7.01)  LR: 7.941e-05  Time cost: 00:08/46:38 [02:33/1:33:24]  Acc_iter 204500      Data time: 0.11(0.17)  Forward time: 0.26(0.23)  Batch time: 0.38(0.41)
+2023-12-03 22:00:10,480   INFO  Train:   31/32 ( 97%) [  69/6816 (  1%)]  Loss: 7.701 (7.15)  LR: 7.884e-05  Time cost: 00:26/42:28 [02:51/1:25:22]  Acc_iter 204550      Data time: 0.11(0.13)  Forward time: 0.29(0.25)  Batch time: 0.40(0.38)
+2023-12-03 22:00:27,716   INFO  Train:   31/32 ( 97%) [ 119/6816 (  2%)]  Loss: 7.373 (7.34)  LR: 7.826e-05  Time cost: 00:43/40:37 [03:09/1:21:58]  Acc_iter 204600      Data time: 0.10(0.12)  Forward time: 0.27(0.25)  Batch time: 0.37(0.36)
+2023-12-03 22:00:45,137   INFO  Train:   31/32 ( 97%) [ 169/6816 (  2%)]  Loss: 7.876 (7.35)  LR: 7.769e-05  Time cost: 01:01/39:48 [03:26/1:20:38]  Acc_iter 204650      Data time: 0.02(0.11)  Forward time: 0.24(0.25)  Batch time: 0.26(0.36)
+2023-12-03 22:01:08,907   INFO  Train:   31/32 ( 97%) [ 219/6816 (  3%)]  Loss: 7.590 (7.48)  LR: 7.712e-05  Time cost: 01:24/42:24 [03:50/1:26:14]  Acc_iter 204700      Data time: 0.01(0.10)  Forward time: 0.48(0.29)  Batch time: 0.49(0.39)
+2023-12-03 22:01:26,502   INFO  Train:   31/32 ( 97%) [ 269/6816 (  4%)]  Loss: 6.925 (7.42)  LR: 7.655e-05  Time cost: 01:42/41:24 [04:07/1:24:31]  Acc_iter 204750      Data time: 0.11(0.10)  Forward time: 0.21(0.28)  Batch time: 0.32(0.38)
+2023-12-03 22:01:42,377   INFO  Train:   31/32 ( 97%) [ 319/6816 (  5%)]  Loss: 7.242 (7.38)  LR: 7.598e-05  Time cost: 01:58/40:02 [04:23/1:22:03]  Acc_iter 204800      Data time: 0.09(0.10)  Forward time: 0.23(0.27)  Batch time: 0.32(0.37)
+2023-12-03 22:01:58,368   INFO  Train:   31/32 ( 97%) [ 369/6816 (  5%)]  Loss: 7.199 (7.41)  LR: 7.542e-05  Time cost: 02:14/39:00 [04:39/1:20:15]  Acc_iter 204850      Data time: 0.09(0.10)  Forward time: 0.24(0.26)  Batch time: 0.33(0.36)
+2023-12-03 22:02:14,854   INFO  Train:   31/32 ( 97%) [ 419/6816 (  6%)]  Loss: 6.879 (7.39)  LR: 7.486e-05  Time cost: 02:30/38:17 [04:56/1:19:04]  Acc_iter 204900      Data time: 0.10(0.10)  Forward time: 0.24(0.26)  Batch time: 0.34(0.36)
+2023-12-03 22:02:32,448   INFO  Train:   31/32 ( 97%) [ 469/6816 (  7%)]  Loss: 7.169 (7.34)  LR: 7.429e-05  Time cost: 02:48/37:54 [05:13/1:18:36]  Acc_iter 204950      Data time: 0.09(0.10)  Forward time: 0.28(0.26)  Batch time: 0.37(0.36)
+2023-12-03 22:02:56,517   INFO  Train:   31/32 ( 97%) [ 519/6816 (  8%)]  Loss: 7.179 (7.31)  LR: 7.374e-05  Time cost: 03:12/38:50 [05:37/1:20:53]  Acc_iter 205000      Data time: 0.08(0.09)  Forward time: 0.49(0.28)  Batch time: 0.57(0.37)
+2023-12-03 22:03:21,907   INFO  Train:   31/32 ( 97%) [ 569/6816 (  8%)]  Loss: 8.097 (7.34)  LR: 7.318e-05  Time cost: 03:37/39:47 [06:03/1:23:12]  Acc_iter 205050      Data time: 0.05(0.09)  Forward time: 0.51(0.29)  Batch time: 0.57(0.38)
+2023-12-03 22:03:48,219   INFO  Train:   31/32 ( 97%) [ 619/6816 (  9%)]  Loss: 8.081 (7.40)  LR: 7.263e-05  Time cost: 04:04/40:40 [06:29/1:25:24]  Acc_iter 205100      Data time: 0.04(0.08)  Forward time: 0.50(0.31)  Batch time: 0.54(0.39)
+2023-12-03 22:04:08,952   INFO  Train:   31/32 ( 97%) [ 669/6816 ( 10%)]  Loss: 7.598 (7.39)  LR: 7.207e-05  Time cost: 04:24/40:30 [06:50/1:25:25]  Acc_iter 205150      Data time: 0.06(0.08)  Forward time: 0.31(0.31)  Batch time: 0.37(0.40)
+2023-12-03 22:04:31,202   INFO  Train:   31/32 ( 97%) [ 719/6816 ( 11%)]  Loss: 7.615 (7.38)  LR: 7.152e-05  Time cost: 04:47/40:31 [07:12/1:25:50]  Acc_iter 205200      Data time: 0.00(0.08)  Forward time: 0.54(0.32)  Batch time: 0.54(0.40)
+2023-12-03 22:04:44,764   INFO  Save latest model to /home/student/models/waymokitti_models/centerpoint_second/varsha2/ckpt/latest_model
+2023-12-03 22:04:55,413   INFO  Train:   31/32 ( 97%) [ 769/6816 ( 11%)]  Loss: 7.528 (7.40)  LR: 7.097e-05  Time cost: 05:11/40:45 [07:36/1:26:41]  Acc_iter 205250      Data time: 0.07(0.08)  Forward time: 0.37(0.32)  Batch time: 0.44(0.40)
+2023-12-03 22:05:16,937   INFO  Train:   31/32 ( 97%) [ 819/6816 ( 12%)]  Loss: 6.905 (7.39)  LR: 7.043e-05  Time cost: 05:32/40:34 [07:58/1:26:41]  Acc_iter 205300      Data time: 0.06(0.08)  Forward time: 0.33(0.33)  Batch time: 0.39(0.41)
+2023-12-03 22:05:41,116   INFO  Train:   31/32 ( 97%) [ 869/6816 ( 13%)]  Loss: 6.153 (7.36)  LR: 6.988e-05  Time cost: 05:57/40:40 [08:22/1:27:18]  Acc_iter 205350      Data time: 0.06(0.08)  Forward time: 0.30(0.33)  Batch time: 0.36(0.41)
+2023-12-03 22:06:01,426   INFO  Train:   31/32 ( 97%) [ 919/6816 ( 13%)]  Loss: 7.128 (7.33)  LR: 6.934e-05  Time cost: 06:17/40:18 [08:42/1:26:54]  Acc_iter 205400      Data time: 0.05(0.07)  Forward time: 0.36(0.34)  Batch time: 0.41(0.41)
+2023-12-03 22:06:20,249   INFO  Train:   31/32 ( 97%) [ 969/6816 ( 14%)]  Loss: 6.439 (7.32)  LR: 6.880e-05  Time cost: 06:36/39:48 [09:01/1:26:12]  Acc_iter 205450      Data time: 0.06(0.07)  Forward time: 0.33(0.34)  Batch time: 0.39(0.41)
+2023-12-03 22:06:39,397   INFO  Train:   31/32 ( 97%) [1019/6816 ( 15%)]  Loss: 6.707 (7.31)  LR: 6.826e-05  Time cost: 06:55/39:20 [09:20/1:25:36]  Acc_iter 205500      Data time: 0.05(0.07)  Forward time: 0.32(0.33)  Batch time: 0.36(0.41)
+2023-12-03 22:06:58,204   INFO  Train:   31/32 ( 97%) [1069/6816 ( 16%)]  Loss: 6.902 (7.29)  LR: 6.773e-05  Time cost: 07:14/38:51 [09:39/1:24:57]  Acc_iter 205550      Data time: 0.10(0.07)  Forward time: 0.30(0.33)  Batch time: 0.39(0.41)
+2023-12-03 22:07:18,548   INFO  Train:   31/32 ( 97%) [1119/6816 ( 16%)]  Loss: 7.879 (7.28)  LR: 6.720e-05  Time cost: 07:34/38:31 [09:59/1:24:37]  Acc_iter 205600      Data time: 0.06(0.07)  Forward time: 0.38(0.33)  Batch time: 0.44(0.41)
+2023-12-03 22:07:42,335   INFO  Train:   31/32 ( 97%) [1169/6816 ( 17%)]  Loss: 6.426 (7.29)  LR: 6.666e-05  Time cost: 07:58/38:28 [10:23/1:24:54]  Acc_iter 205650      Data time: 0.06(0.07)  Forward time: 0.36(0.34)  Batch time: 0.42(0.41)
+2023-12-03 22:08:06,299   INFO  Train:   31/32 ( 97%) [1219/6816 ( 18%)]  Loss: 7.267 (7.28)  LR: 6.613e-05  Time cost: 08:22/38:24 [10:47/1:25:10]  Acc_iter 205700      Data time: 0.07(0.07)  Forward time: 0.42(0.34)  Batch time: 0.49(0.41)
+2023-12-03 22:08:31,431   INFO  Train:   31/32 ( 97%) [1269/6816 ( 19%)]  Loss: 7.023 (7.28)  LR: 6.561e-05  Time cost: 08:47/38:23 [11:12/1:25:33]  Acc_iter 205750      Data time: 0.10(0.07)  Forward time: 0.39(0.34)  Batch time: 0.49(0.42)
+2023-12-03 22:08:51,629   INFO  Train:   31/32 ( 97%) [1319/6816 ( 19%)]  Loss: 6.872 (7.28)  LR: 6.508e-05  Time cost: 09:07/38:00 [11:33/1:25:07]  Acc_iter 205800      Data time: 0.07(0.07)  Forward time: 0.30(0.34)  Batch time: 0.37(0.41)
+2023-12-03 22:09:08,978   INFO  Train:   31/32 ( 97%) [1369/6816 ( 20%)]  Loss: 8.187 (7.27)  LR: 6.456e-05  Time cost: 09:24/37:26 [11:50/1:24:16]  Acc_iter 205850      Data time: 0.08(0.07)  Forward time: 0.30(0.34)  Batch time: 0.39(0.41)
+2023-12-03 22:09:27,522   INFO  Train:   31/32 ( 97%) [1419/6816 ( 21%)]  Loss: 6.727 (7.27)  LR: 6.404e-05  Time cost: 09:43/36:57 [12:08/1:23:38]  Acc_iter 205900      Data time: 0.09(0.07)  Forward time: 0.25(0.34)  Batch time: 0.34(0.41)
+2023-12-03 22:09:44,333   INFO  Train:   31/32 ( 97%) [1469/6816 ( 22%)]  Loss: 7.187 (7.28)  LR: 6.352e-05  Time cost: 10:00/36:23 [12:25/1:22:46]  Acc_iter 205950      Data time: 0.07(0.07)  Forward time: 0.26(0.34)  Batch time: 0.33(0.41)
+2023-12-03 22:09:44,646   INFO  Save latest model to /home/student/models/waymokitti_models/centerpoint_second/varsha2/ckpt/latest_model
+2023-12-03 22:10:03,635   INFO  Train:   31/32 ( 97%) [1519/6816 ( 22%)]  Loss: 8.429 (7.29)  LR: 6.300e-05  Time cost: 10:19/35:59 [12:45/1:22:17]  Acc_iter 206000      Data time: 0.10(0.07)  Forward time: 0.32(0.33)  Batch time: 0.42(0.41)
+2023-12-03 22:10:22,425   INFO  Train:   31/32 ( 97%) [1569/6816 ( 23%)]  Loss: 6.900 (7.29)  LR: 6.248e-05  Time cost: 10:38/35:33 [13:03/1:21:44]  Acc_iter 206050      Data time: 0.10(0.07)  Forward time: 0.25(0.33)  Batch time: 0.34(0.41)
+2023-12-03 22:10:41,858   INFO  Train:   31/32 ( 97%) [1619/6816 ( 24%)]  Loss: 6.535 (7.28)  LR: 6.197e-05  Time cost: 10:57/35:10 [13:23/1:21:17]  Acc_iter 206100      Data time: 0.08(0.07)  Forward time: 0.30(0.33)  Batch time: 0.38(0.41)
+2023-12-03 22:11:00,683   INFO  Train:   31/32 ( 97%) [1669/6816 ( 24%)]  Loss: 6.741 (7.27)  LR: 6.146e-05  Time cost: 11:16/34:45 [13:42/1:20:47]  Acc_iter 206150      Data time: 0.07(0.07)  Forward time: 0.32(0.33)  Batch time: 0.39(0.41)
+2023-12-03 22:11:21,364   INFO  Train:   31/32 ( 97%) [1719/6816 ( 25%)]  Loss: 7.954 (7.26)  LR: 6.095e-05  Time cost: 11:37/34:26 [14:02/1:20:29]  Acc_iter 206200      Data time: 0.01(0.07)  Forward time: 0.48(0.33)  Batch time: 0.49(0.41)
+2023-12-03 22:11:43,201   INFO  Train:   31/32 ( 97%) [1769/6816 ( 26%)]  Loss: 7.640 (7.28)  LR: 6.044e-05  Time cost: 11:59/34:10 [14:24/1:20:19]  Acc_iter 206250      Data time: 0.04(0.07)  Forward time: 0.32(0.33)  Batch time: 0.36(0.41)
+2023-12-03 22:11:59,946   INFO  Train:   31/32 ( 97%) [1819/6816 ( 27%)]  Loss: 7.736 (7.28)  LR: 5.994e-05  Time cost: 12:15/33:40 [14:41/1:19:36]  Acc_iter 206300      Data time: 0.02(0.07)  Forward time: 0.32(0.33)  Batch time: 0.33(0.40)
+2023-12-03 22:12:18,636   INFO  Train:   31/32 ( 97%) [1869/6816 ( 27%)]  Loss: 7.427 (7.28)  LR: 5.944e-05  Time cost: 12:34/33:16 [15:00/1:19:06]  Acc_iter 206350      Data time: 0.08(0.07)  Forward time: 0.28(0.33)  Batch time: 0.36(0.40)
+2023-12-03 22:12:37,773   INFO  Train:   31/32 ( 97%) [1919/6816 ( 28%)]  Loss: 7.447 (7.27)  LR: 5.894e-05  Time cost: 12:53/32:53 [15:19/1:18:40]  Acc_iter 206400      Data time: 0.06(0.07)  Forward time: 0.33(0.33)  Batch time: 0.39(0.40)
+2023-12-03 22:12:57,872   INFO  Train:   31/32 ( 97%) [1969/6816 ( 29%)]  Loss: 6.973 (7.28)  LR: 5.844e-05  Time cost: 13:13/32:33 [15:39/1:18:19]  Acc_iter 206450      Data time: 0.08(0.07)  Forward time: 0.34(0.33)  Batch time: 0.42(0.40)
+2023-12-03 22:13:17,063   INFO  Train:   31/32 ( 97%) [2019/6816 ( 30%)]  Loss: 7.387 (7.28)  LR: 5.794e-05  Time cost: 13:33/32:10 [15:58/1:17:54]  Acc_iter 206500      Data time: 0.08(0.07)  Forward time: 0.30(0.33)  Batch time: 0.38(0.40)
+2023-12-03 22:13:36,884   INFO  Train:   31/32 ( 97%) [2069/6816 ( 30%)]  Loss: 6.944 (7.28)  LR: 5.745e-05  Time cost: 13:52/31:49 [16:18/1:17:32]  Acc_iter 206550      Data time: 0.08(0.07)  Forward time: 0.32(0.33)  Batch time: 0.40(0.40)
+2023-12-03 22:13:55,540   INFO  Train:   31/32 ( 97%) [2119/6816 ( 31%)]  Loss: 6.937 (7.28)  LR: 5.695e-05  Time cost: 14:11/31:26 [16:36/1:17:04]  Acc_iter 206600      Data time: 0.03(0.07)  Forward time: 0.35(0.33)  Batch time: 0.38(0.40)
+2023-12-03 22:14:15,813   INFO  Train:   31/32 ( 97%) [2169/6816 ( 32%)]  Loss: 8.097 (7.29)  LR: 5.646e-05  Time cost: 14:31/31:06 [16:57/1:16:45]  Acc_iter 206650      Data time: 0.05(0.07)  Forward time: 0.38(0.33)  Batch time: 0.43(0.40)
+2023-12-03 22:14:37,421   INFO  Train:   31/32 ( 97%) [2219/6816 ( 33%)]  Loss: 7.560 (7.29)  LR: 5.598e-05  Time cost: 14:53/30:49 [17:18/1:16:32]  Acc_iter 206700      Data time: 0.05(0.07)  Forward time: 0.37(0.33)  Batch time: 0.43(0.40)
+2023-12-03 22:14:44,613   INFO  Save latest model to /home/student/models/waymokitti_models/centerpoint_second/varsha2/ckpt/latest_model
+2023-12-03 22:14:57,344   INFO  Train:   31/32 ( 97%) [2269/6816 ( 33%)]  Loss: 7.373 (7.30)  LR: 5.549e-05  Time cost: 15:13/30:29 [17:38/1:16:11]  Acc_iter 206750      Data time: 0.03(0.07)  Forward time: 0.35(0.33)  Batch time: 0.38(0.40)
+2023-12-03 22:15:15,650   INFO  Train:   31/32 ( 97%) [2319/6816 ( 34%)]  Loss: 7.392 (7.31)  LR: 5.501e-05  Time cost: 15:31/30:05 [17:57/1:15:42]  Acc_iter 206800      Data time: 0.07(0.07)  Forward time: 0.27(0.33)  Batch time: 0.34(0.40)
+2023-12-03 22:15:32,045   INFO  Train:   31/32 ( 97%) [2369/6816 ( 35%)]  Loss: 6.944 (7.30)  LR: 5.452e-05  Time cost: 15:48/29:38 [18:13/1:15:05]  Acc_iter 206850      Data time: 0.07(0.07)  Forward time: 0.25(0.33)  Batch time: 0.32(0.40)
+2023-12-03 22:15:48,266   INFO  Train:   31/32 ( 97%) [2419/6816 ( 35%)]  Loss: 7.708 (7.30)  LR: 5.404e-05  Time cost: 16:04/29:11 [18:29/1:14:27]  Acc_iter 206900      Data time: 0.05(0.07)  Forward time: 0.26(0.33)  Batch time: 0.31(0.40)
+2023-12-03 22:16:04,463   INFO  Train:   31/32 ( 97%) [2469/6816 ( 36%)]  Loss: 6.943 (7.30)  LR: 5.357e-05  Time cost: 16:20/28:45 [18:45/1:13:50]  Acc_iter 206950      Data time: 0.06(0.07)  Forward time: 0.28(0.33)  Batch time: 0.34(0.40)
+2023-12-03 22:16:21,304   INFO  Train:   31/32 ( 97%) [2519/6816 ( 37%)]  Loss: 6.400 (7.30)  LR: 5.309e-05  Time cost: 16:37/28:20 [19:02/1:13:17]  Acc_iter 207000      Data time: 0.09(0.07)  Forward time: 0.24(0.33)  Batch time: 0.33(0.40)
+2023-12-03 22:16:41,137   INFO  Train:   31/32 ( 97%) [2569/6816 ( 38%)]  Loss: 7.302 (7.29)  LR: 5.262e-05  Time cost: 16:57/28:00 [19:22/1:12:58]  Acc_iter 207050      Data time: 0.06(0.07)  Forward time: 0.34(0.33)  Batch time: 0.40(0.40)
+2023-12-03 22:17:01,781   INFO  Train:   31/32 ( 97%) [2619/6816 ( 38%)]  Loss: 7.580 (7.29)  LR: 5.215e-05  Time cost: 17:17/27:42 [19:43/1:12:42]  Acc_iter 207100      Data time: 0.06(0.07)  Forward time: 0.49(0.33)  Batch time: 0.55(0.40)
+2023-12-03 22:17:26,521   INFO  Train:   31/32 ( 97%) [2669/6816 ( 39%)]  Loss: 7.931 (7.30)  LR: 5.168e-05  Time cost: 17:42/27:30 [20:07/1:12:42]  Acc_iter 207150      Data time: 0.08(0.07)  Forward time: 0.37(0.33)  Batch time: 0.44(0.40)
+2023-12-03 22:17:45,194   INFO  Train:   31/32 ( 97%) [2719/6816 ( 40%)]  Loss: 7.061 (7.30)  LR: 5.121e-05  Time cost: 18:01/27:08 [20:26/1:12:17]  Acc_iter 207200      Data time: 0.04(0.07)  Forward time: 0.28(0.33)  Batch time: 0.32(0.40)
+2023-12-03 22:18:02,051   INFO  Train:   31/32 ( 97%) [2769/6816 ( 41%)]  Loss: 8.147 (7.30)  LR: 5.074e-05  Time cost: 18:18/26:44 [20:43/1:11:46]  Acc_iter 207250      Data time: 0.02(0.07)  Forward time: 0.35(0.33)  Batch time: 0.37(0.40)
+2023-12-03 22:18:24,492   INFO  Train:   31/32 ( 97%) [2819/6816 ( 41%)]  Loss: 7.479 (7.31)  LR: 5.028e-05  Time cost: 18:40/26:28 [21:05/1:11:36]  Acc_iter 207300      Data time: 0.07(0.07)  Forward time: 0.45(0.33)  Batch time: 0.52(0.40)
+2023-12-03 22:18:46,849   INFO  Train:   31/32 ( 97%) [2869/6816 ( 42%)]  Loss: 7.338 (7.32)  LR: 4.982e-05  Time cost: 19:02/26:11 [21:28/1:11:25]  Acc_iter 207350      Data time: 0.06(0.07)  Forward time: 0.39(0.33)  Batch time: 0.45(0.40)
+2023-12-03 22:19:06,555   INFO  Train:   31/32 ( 97%) [2919/6816 ( 43%)]  Loss: 7.226 (7.31)  LR: 4.936e-05  Time cost: 19:22/25:51 [21:47/1:11:05]  Acc_iter 207400      Data time: 0.08(0.07)  Forward time: 0.33(0.33)  Batch time: 0.41(0.40)
+2023-12-03 22:19:25,570   INFO  Train:   31/32 ( 97%) [2969/6816 ( 44%)]  Loss: 7.502 (7.31)  LR: 4.890e-05  Time cost: 19:41/25:30 [22:06/1:10:41]  Acc_iter 207450      Data time: 0.07(0.07)  Forward time: 0.34(0.33)  Batch time: 0.41(0.40)
+2023-12-03 22:19:44,393   INFO  Save latest model to /home/student/models/waymokitti_models/centerpoint_second/varsha2/ckpt/latest_model
+2023-12-03 22:19:45,644   INFO  Train:   31/32 ( 97%) [3019/6816 ( 44%)]  Loss: 7.233 (7.31)  LR: 4.845e-05  Time cost: 20:01/25:10 [22:27/1:10:22]  Acc_iter 207500      Data time: 0.05(0.07)  Forward time: 0.36(0.33)  Batch time: 0.42(0.40)
+2023-12-03 22:20:06,864   INFO  Train:   31/32 ( 97%) [3069/6816 ( 45%)]  Loss: 7.076 (7.30)  LR: 4.800e-05  Time cost: 20:22/24:52 [22:48/1:10:07]  Acc_iter 207550      Data time: 0.06(0.07)  Forward time: 0.36(0.33)  Batch time: 0.42(0.40)
+2023-12-03 22:20:27,255   INFO  Train:   31/32 ( 97%) [3119/6816 ( 46%)]  Loss: 6.830 (7.30)  LR: 4.755e-05  Time cost: 20:43/24:33 [23:08/1:09:49]  Acc_iter 207600      Data time: 0.04(0.07)  Forward time: 0.35(0.33)  Batch time: 0.39(0.40)
+2023-12-03 22:20:47,928   INFO  Train:   31/32 ( 97%) [3169/6816 ( 46%)]  Loss: 6.170 (7.29)  LR: 4.710e-05  Time cost: 21:03/24:14 [23:29/1:09:31]  Acc_iter 207650      Data time: 0.02(0.07)  Forward time: 0.33(0.33)  Batch time: 0.35(0.40)
+2023-12-03 22:21:12,430   INFO  Train:   31/32 ( 97%) [3219/6816 ( 47%)]  Loss: 6.131 (7.29)  LR: 4.665e-05  Time cost: 21:28/23:59 [23:53/1:09:26]  Acc_iter 207700      Data time: 0.05(0.07)  Forward time: 0.28(0.33)  Batch time: 0.33(0.40)
+2023-12-03 22:21:37,056   INFO  Train:   31/32 ( 97%) [3269/6816 ( 48%)]  Loss: 7.571 (7.29)  LR: 4.621e-05  Time cost: 21:53/23:44 [24:18/1:09:21]  Acc_iter 207750      Data time: 0.05(0.06)  Forward time: 0.33(0.34)  Batch time: 0.37(0.40)
+2023-12-03 22:21:58,546   INFO  Train:   31/32 ( 97%) [3319/6816 ( 49%)]  Loss: 6.538 (7.29)  LR: 4.576e-05  Time cost: 22:14/23:25 [24:39/1:09:05]  Acc_iter 207800      Data time: 0.06(0.06)  Forward time: 0.33(0.34)  Batch time: 0.39(0.40)
+2023-12-03 22:22:24,776   INFO  Train:   31/32 ( 97%) [3369/6816 ( 49%)]  Loss: 6.695 (7.28)  LR: 4.532e-05  Time cost: 22:40/23:11 [25:06/1:09:03]  Acc_iter 207850      Data time: 0.06(0.06)  Forward time: 0.32(0.34)  Batch time: 0.38(0.40)
+2023-12-03 22:22:45,850   INFO  Train:   31/32 ( 97%) [3419/6816 ( 50%)]  Loss: 7.173 (7.28)  LR: 4.489e-05  Time cost: 23:01/22:52 [25:27/1:08:46]  Acc_iter 207900      Data time: 0.04(0.06)  Forward time: 0.36(0.34)  Batch time: 0.39(0.40)
+2023-12-03 22:23:05,103   INFO  Train:   31/32 ( 97%) [3469/6816 ( 51%)]  Loss: 7.102 (7.28)  LR: 4.445e-05  Time cost: 23:21/22:31 [25:46/1:08:23]  Acc_iter 207950      Data time: 0.07(0.06)  Forward time: 0.30(0.34)  Batch time: 0.38(0.40)
+2023-12-03 22:23:25,350   INFO  Train:   31/32 ( 97%) [3519/6816 ( 52%)]  Loss: 6.806 (7.27)  LR: 4.402e-05  Time cost: 23:41/22:11 [26:06/1:08:03]  Acc_iter 208000      Data time: 0.05(0.06)  Forward time: 0.32(0.34)  Batch time: 0.37(0.40)
+2023-12-03 22:23:45,899   INFO  Train:   31/32 ( 97%) [3569/6816 ( 52%)]  Loss: 6.539 (7.27)  LR: 4.358e-05  Time cost: 24:01/21:51 [26:27/1:07:44]  Acc_iter 208050      Data time: 0.07(0.06)  Forward time: 0.52(0.34)  Batch time: 0.60(0.40)
+2023-12-03 22:24:04,190   INFO  Train:   31/32 ( 97%) [3619/6816 ( 53%)]  Loss: 7.438 (7.26)  LR: 4.315e-05  Time cost: 24:20/21:29 [26:45/1:07:18]  Acc_iter 208100      Data time: 0.07(0.06)  Forward time: 0.29(0.34)  Batch time: 0.36(0.40)
+2023-12-03 22:24:29,274   INFO  Train:   31/32 ( 97%) [3669/6816 ( 54%)]  Loss: 8.096 (7.27)  LR: 4.273e-05  Time cost: 24:45/21:13 [27:10/1:07:11]  Acc_iter 208150      Data time: 0.02(0.06)  Forward time: 0.68(0.34)  Batch time: 0.70(0.40)
+2023-12-03 22:24:44,690   INFO  Save latest model to /home/student/models/waymokitti_models/centerpoint_second/varsha2/ckpt/latest_model
+2023-12-03 22:24:53,462   INFO  Train:   31/32 ( 97%) [3719/6816 ( 55%)]  Loss: 7.861 (7.28)  LR: 4.230e-05  Time cost: 25:09/20:56 [27:34/1:07:02]  Acc_iter 208200      Data time: 0.06(0.06)  Forward time: 0.32(0.34)  Batch time: 0.37(0.41)
+2023-12-03 22:25:13,584   INFO  Train:   31/32 ( 97%) [3769/6816 ( 55%)]  Loss: 6.769 (7.28)  LR: 4.188e-05  Time cost: 25:29/20:36 [27:54/1:06:41]  Acc_iter 208250      Data time: 0.01(0.06)  Forward time: 0.31(0.34)  Batch time: 0.32(0.41)
+2023-12-03 22:25:32,075   INFO  Train:   31/32 ( 97%) [3819/6816 ( 56%)]  Loss: 6.397 (7.28)  LR: 4.146e-05  Time cost: 25:48/20:14 [28:13/1:06:16]  Acc_iter 208300      Data time: 0.05(0.06)  Forward time: 0.28(0.34)  Batch time: 0.34(0.41)
+2023-12-03 22:25:49,775   INFO  Train:   31/32 ( 97%) [3869/6816 ( 57%)]  Loss: 7.049 (7.27)  LR: 4.104e-05  Time cost: 26:05/19:52 [28:31/1:05:49]  Acc_iter 208350      Data time: 0.06(0.06)  Forward time: 0.37(0.34)  Batch time: 0.43(0.40)
+2023-12-03 22:26:11,377   INFO  Train:   31/32 ( 97%) [3919/6816 ( 57%)]  Loss: 8.089 (7.27)  LR: 4.062e-05  Time cost: 26:27/19:33 [28:52/1:05:33]  Acc_iter 208400      Data time: 0.06(0.06)  Forward time: 0.43(0.34)  Batch time: 0.50(0.40)
+2023-12-03 22:26:34,931   INFO  Train:   31/32 ( 97%) [3969/6816 ( 58%)]  Loss: 6.632 (7.28)  LR: 4.021e-05  Time cost: 26:50/19:15 [29:16/1:05:20]  Acc_iter 208450      Data time: 0.04(0.06)  Forward time: 0.37(0.34)  Batch time: 0.41(0.41)
+2023-12-03 22:26:56,896   INFO  Train:   31/32 ( 97%) [4019/6816 ( 59%)]  Loss: 7.022 (7.28)  LR: 3.979e-05  Time cost: 27:12/18:56 [29:38/1:05:04]  Acc_iter 208500      Data time: 0.05(0.06)  Forward time: 0.43(0.34)  Batch time: 0.48(0.41)
+2023-12-03 22:27:17,782   INFO  Train:   31/32 ( 97%) [4069/6816 ( 60%)]  Loss: 6.271 (7.28)  LR: 3.938e-05  Time cost: 27:33/18:36 [29:59/1:04:45]  Acc_iter 208550      Data time: 0.02(0.06)  Forward time: 0.48(0.34)  Batch time: 0.51(0.41)
+2023-12-03 22:27:39,369   INFO  Train:   31/32 ( 97%) [4119/6816 ( 60%)]  Loss: 7.188 (7.27)  LR: 3.897e-05  Time cost: 27:55/18:16 [30:20/1:04:28]  Acc_iter 208600      Data time: 0.11(0.06)  Forward time: 0.50(0.34)  Batch time: 0.61(0.41)
+2023-12-03 22:28:01,002   INFO  Train:   31/32 ( 97%) [4169/6816 ( 61%)]  Loss: 7.717 (7.27)  LR: 3.857e-05  Time cost: 28:16/17:57 [30:42/1:04:10]  Acc_iter 208650      Data time: 0.08(0.06)  Forward time: 0.34(0.34)  Batch time: 0.42(0.41)
+2023-12-03 22:28:24,200   INFO  Train:   31/32 ( 97%) [4219/6816 ( 62%)]  Loss: 7.930 (7.28)  LR: 3.816e-05  Time cost: 28:40/17:38 [31:05/1:03:56]  Acc_iter 208700      Data time: 0.06(0.06)  Forward time: 0.38(0.35)  Batch time: 0.44(0.41)
+2023-12-03 22:28:43,908   INFO  Train:   31/32 ( 97%) [4269/6816 ( 63%)]  Loss: 6.726 (7.28)  LR: 3.776e-05  Time cost: 28:59/17:17 [31:25/1:03:35]  Acc_iter 208750      Data time: 0.05(0.06)  Forward time: 0.37(0.35)  Batch time: 0.41(0.41)
+2023-12-03 22:29:05,157   INFO  Train:   31/32 ( 97%) [4319/6816 ( 63%)]  Loss: 6.990 (7.28)  LR: 3.736e-05  Time cost: 29:21/16:57 [31:46/1:03:16]  Acc_iter 208800      Data time: 0.01(0.06)  Forward time: 0.50(0.35)  Batch time: 0.50(0.41)
+2023-12-03 22:29:27,551   INFO  Train:   31/32 ( 97%) [4369/6816 ( 64%)]  Loss: 7.404 (7.28)  LR: 3.696e-05  Time cost: 29:43/16:38 [32:08/1:03:00]  Acc_iter 208850      Data time: 0.05(0.06)  Forward time: 0.36(0.35)  Batch time: 0.42(0.41)
+2023-12-03 22:29:44,517   INFO  Save latest model to /home/student/models/waymokitti_models/centerpoint_second/varsha2/ckpt/latest_model
+2023-12-03 22:29:47,481   INFO  Train:   31/32 ( 97%) [4419/6816 ( 65%)]  Loss: 6.377 (7.27)  LR: 3.657e-05  Time cost: 30:03/16:18 [32:28/1:02:39]  Acc_iter 208900      Data time: 0.03(0.06)  Forward time: 0.33(0.35)  Batch time: 0.35(0.41)
+2023-12-03 22:30:06,243   INFO  Train:   31/32 ( 97%) [4469/6816 ( 66%)]  Loss: 6.850 (7.27)  LR: 3.617e-05  Time cost: 30:22/15:56 [32:47/1:02:15]  Acc_iter 208950      Data time: 0.05(0.06)  Forward time: 0.37(0.35)  Batch time: 0.42(0.41)
+2023-12-03 22:30:28,772   INFO  Train:   31/32 ( 97%) [4519/6816 ( 66%)]  Loss: 7.462 (7.27)  LR: 3.578e-05  Time cost: 30:44/15:37 [33:10/1:01:59]  Acc_iter 209000      Data time: 0.01(0.06)  Forward time: 0.49(0.35)  Batch time: 0.49(0.41)
+2023-12-03 22:30:49,633   INFO  Train:   31/32 ( 97%) [4569/6816 ( 67%)]  Loss: 7.919 (7.27)  LR: 3.539e-05  Time cost: 31:05/15:17 [33:31/1:01:39]  Acc_iter 209050      Data time: 0.04(0.06)  Forward time: 0.34(0.35)  Batch time: 0.38(0.41)
+2023-12-03 22:31:11,226   INFO  Train:   31/32 ( 97%) [4619/6816 ( 68%)]  Loss: 7.293 (7.27)  LR: 3.500e-05  Time cost: 31:27/14:57 [33:52/1:01:21]  Acc_iter 209100      Data time: 0.03(0.06)  Forward time: 0.57(0.35)  Batch time: 0.60(0.41)
+2023-12-03 22:31:32,855   INFO  Train:   31/32 ( 97%) [4669/6816 ( 69%)]  Loss: 7.419 (7.27)  LR: 3.462e-05  Time cost: 31:48/14:37 [34:14/1:01:03]  Acc_iter 209150      Data time: 0.06(0.06)  Forward time: 0.35(0.35)  Batch time: 0.41(0.41)
+2023-12-03 22:31:54,347   INFO  Train:   31/32 ( 97%) [4719/6816 ( 69%)]  Loss: 7.594 (7.27)  LR: 3.423e-05  Time cost: 32:10/14:17 [34:35/1:00:45]  Acc_iter 209200      Data time: 0.06(0.06)  Forward time: 0.36(0.35)  Batch time: 0.42(0.41)
+2023-12-03 22:32:14,690   INFO  Train:   31/32 ( 97%) [4769/6816 ( 70%)]  Loss: 6.781 (7.27)  LR: 3.385e-05  Time cost: 32:30/13:57 [34:56/1:00:24]  Acc_iter 209250      Data time: 0.04(0.06)  Forward time: 0.36(0.35)  Batch time: 0.40(0.41)
+2023-12-03 22:32:34,750   INFO  Train:   31/32 ( 97%) [4819/6816 ( 71%)]  Loss: 7.066 (7.27)  LR: 3.347e-05  Time cost: 32:50/13:36 [35:16/1:00:03]  Acc_iter 209300      Data time: 0.04(0.06)  Forward time: 0.35(0.35)  Batch time: 0.39(0.41)
+2023-12-03 22:32:54,067   INFO  Train:   31/32 ( 97%) [4869/6816 ( 71%)]  Loss: 7.098 (7.27)  LR: 3.310e-05  Time cost: 33:10/13:15 [35:35/59:40]  Acc_iter 209350      Data time: 0.04(0.06)  Forward time: 0.33(0.35)  Batch time: 0.37(0.41)
+2023-12-03 22:33:13,620   INFO  Train:   31/32 ( 97%) [4919/6816 ( 72%)]  Loss: 7.413 (7.27)  LR: 3.272e-05  Time cost: 33:29/12:54 [35:55/59:18]  Acc_iter 209400      Data time: 0.05(0.06)  Forward time: 0.36(0.35)  Batch time: 0.41(0.41)
+2023-12-03 22:33:36,481   INFO  Train:   31/32 ( 97%) [4969/6816 ( 73%)]  Loss: 7.450 (7.27)  LR: 3.235e-05  Time cost: 33:52/12:35 [36:17/59:02]  Acc_iter 209450      Data time: 0.05(0.06)  Forward time: 0.36(0.35)  Batch time: 0.41(0.41)
+2023-12-03 22:33:56,371   INFO  Train:   31/32 ( 97%) [5019/6816 ( 74%)]  Loss: 6.414 (7.27)  LR: 3.198e-05  Time cost: 34:12/12:14 [36:37/58:41]  Acc_iter 209500      Data time: 0.05(0.06)  Forward time: 0.32(0.35)  Batch time: 0.37(0.41)
+2023-12-03 22:34:15,488   INFO  Train:   31/32 ( 97%) [5069/6816 ( 74%)]  Loss: 6.853 (7.26)  LR: 3.161e-05  Time cost: 34:31/11:53 [36:56/58:18]  Acc_iter 209550      Data time: 0.09(0.06)  Forward time: 0.27(0.35)  Batch time: 0.36(0.41)
+2023-12-03 22:34:34,352   INFO  Train:   31/32 ( 97%) [5119/6816 ( 75%)]  Loss: 6.667 (7.26)  LR: 3.124e-05  Time cost: 34:50/11:32 [37:15/57:55]  Acc_iter 209600      Data time: 0.08(0.06)  Forward time: 0.28(0.35)  Batch time: 0.36(0.41)
+2023-12-03 22:34:44,431   INFO  Save latest model to /home/student/models/waymokitti_models/centerpoint_second/varsha2/ckpt/latest_model
+2023-12-03 22:34:56,194   INFO  Train:   31/32 ( 97%) [5169/6816 ( 76%)]  Loss: 7.172 (7.26)  LR: 3.088e-05  Time cost: 35:12/11:12 [37:37/57:37]  Acc_iter 209650      Data time: 0.06(0.06)  Forward time: 0.36(0.35)  Batch time: 0.42(0.41)
+2023-12-03 22:35:21,126   INFO  Train:   31/32 ( 97%) [5219/6816 ( 77%)]  Loss: 7.912 (7.26)  LR: 3.052e-05  Time cost: 35:37/10:53 [38:02/57:24]  Acc_iter 209700      Data time: 0.05(0.06)  Forward time: 0.31(0.35)  Batch time: 0.36(0.41)
+2023-12-03 22:35:39,925   INFO  Train:   31/32 ( 97%) [5269/6816 ( 77%)]  Loss: 6.534 (7.25)  LR: 3.016e-05  Time cost: 35:55/10:32 [38:21/57:01]  Acc_iter 209750      Data time: 0.03(0.06)  Forward time: 0.34(0.35)  Batch time: 0.38(0.41)
+2023-12-03 22:35:59,507   INFO  Train:   31/32 ( 97%) [5319/6816 ( 78%)]  Loss: 6.840 (7.25)  LR: 2.980e-05  Time cost: 36:15/10:12 [38:40/56:39]  Acc_iter 209800      Data time: 0.06(0.06)  Forward time: 0.30(0.35)  Batch time: 0.36(0.41)
+2023-12-03 22:36:17,866   INFO  Train:   31/32 ( 97%) [5369/6816 ( 79%)]  Loss: 6.933 (7.25)  LR: 2.944e-05  Time cost: 36:33/09:51 [38:59/56:15]  Acc_iter 209850      Data time: 0.04(0.06)  Forward time: 0.31(0.35)  Batch time: 0.35(0.41)
+2023-12-03 22:36:39,811   INFO  Train:   31/32 ( 97%) [5419/6816 ( 80%)]  Loss: 6.568 (7.25)  LR: 2.909e-05  Time cost: 36:55/09:31 [39:21/55:57]  Acc_iter 209900      Data time: 0.06(0.06)  Forward time: 0.34(0.35)  Batch time: 0.40(0.41)
+2023-12-03 22:37:01,256   INFO  Train:   31/32 ( 97%) [5469/6816 ( 80%)]  Loss: 7.360 (7.24)  LR: 2.874e-05  Time cost: 37:17/09:10 [39:42/55:38]  Acc_iter 209950      Data time: 0.02(0.06)  Forward time: 0.35(0.35)  Batch time: 0.37(0.41)
+2023-12-03 22:37:19,959   INFO  Train:   31/32 ( 97%) [5519/6816 ( 81%)]  Loss: 6.492 (7.24)  LR: 2.839e-05  Time cost: 37:35/08:50 [40:01/55:15]  Acc_iter 210000      Data time: 0.05(0.06)  Forward time: 0.32(0.35)  Batch time: 0.37(0.41)
+2023-12-03 22:37:40,123   INFO  Train:   31/32 ( 97%) [5569/6816 ( 82%)]  Loss: 7.889 (7.24)  LR: 2.804e-05  Time cost: 37:56/08:29 [40:21/54:54]  Acc_iter 210050      Data time: 0.10(0.06)  Forward time: 0.32(0.35)  Batch time: 0.41(0.41)
+2023-12-03 22:38:00,377   INFO  Train:   31/32 ( 97%) [5619/6816 ( 82%)]  Loss: 7.215 (7.24)  LR: 2.770e-05  Time cost: 38:16/08:09 [40:41/54:34]  Acc_iter 210100      Data time: 0.06(0.06)  Forward time: 0.27(0.35)  Batch time: 0.33(0.41)
+2023-12-03 22:38:17,049   INFO  Train:   31/32 ( 97%) [5669/6816 ( 83%)]  Loss: 7.252 (7.24)  LR: 2.735e-05  Time cost: 38:33/07:47 [40:58/54:08]  Acc_iter 210150      Data time: 0.06(0.06)  Forward time: 0.28(0.35)  Batch time: 0.34(0.41)
+2023-12-03 22:38:34,754   INFO  Train:   31/32 ( 97%) [5719/6816 ( 84%)]  Loss: 6.900 (7.24)  LR: 2.701e-05  Time cost: 38:50/07:26 [41:16/53:44]  Acc_iter 210200      Data time: 0.08(0.06)  Forward time: 0.27(0.35)  Batch time: 0.35(0.41)
+2023-12-03 22:38:52,427   INFO  Train:   31/32 ( 97%) [5769/6816 ( 85%)]  Loss: 6.981 (7.23)  LR: 2.667e-05  Time cost: 39:08/07:06 [41:33/53:20]  Acc_iter 210250      Data time: 0.05(0.06)  Forward time: 0.29(0.35)  Batch time: 0.34(0.41)
+2023-12-03 22:39:11,949   INFO  Train:   31/32 ( 97%) [5819/6816 ( 85%)]  Loss: 6.909 (7.23)  LR: 2.634e-05  Time cost: 39:27/06:45 [41:53/52:58]  Acc_iter 210300      Data time: 0.09(0.06)  Forward time: 0.31(0.35)  Batch time: 0.40(0.41)
+2023-12-03 22:39:33,005   INFO  Train:   31/32 ( 97%) [5869/6816 ( 86%)]  Loss: 6.880 (7.23)  LR: 2.600e-05  Time cost: 39:48/06:25 [42:14/52:39]  Acc_iter 210350      Data time: 0.02(0.06)  Forward time: 0.51(0.35)  Batch time: 0.52(0.41)
+2023-12-03 22:39:44,845   INFO  Save latest model to /home/student/models/waymokitti_models/centerpoint_second/varsha2/ckpt/latest_model
+2023-12-03 22:39:59,479   INFO  Train:   31/32 ( 97%) [5919/6816 ( 87%)]  Loss: 9.058 (7.24)  LR: 2.567e-05  Time cost: 40:15/06:05 [42:40/52:27]  Acc_iter 210400      Data time: 0.00(0.06)  Forward time: 0.53(0.35)  Batch time: 0.54(0.41)
+2023-12-03 22:40:23,957   INFO  Train:   31/32 ( 97%) [5969/6816 ( 88%)]  Loss: 7.260 (7.24)  LR: 2.534e-05  Time cost: 40:39/05:46 [43:05/52:11]  Acc_iter 210450      Data time: 0.04(0.06)  Forward time: 0.36(0.35)  Batch time: 0.40(0.41)
+2023-12-03 22:40:45,162   INFO  Train:   31/32 ( 97%) [6019/6816 ( 88%)]  Loss: 6.915 (7.24)  LR: 2.501e-05  Time cost: 41:01/05:25 [43:26/51:52]  Acc_iter 210500      Data time: 0.08(0.06)  Forward time: 0.28(0.35)  Batch time: 0.35(0.41)
+2023-12-03 22:41:02,816   INFO  Train:   31/32 ( 97%) [6069/6816 ( 89%)]  Loss: 6.901 (7.24)  LR: 2.468e-05  Time cost: 41:18/05:05 [43:44/51:28]  Acc_iter 210550      Data time: 0.06(0.06)  Forward time: 0.32(0.35)  Batch time: 0.38(0.41)
+2023-12-03 22:41:22,099   INFO  Train:   31/32 ( 97%) [6119/6816 ( 90%)]  Loss: 7.677 (7.24)  LR: 2.436e-05  Time cost: 41:38/04:44 [44:03/51:06]  Acc_iter 210600      Data time: 0.08(0.06)  Forward time: 0.31(0.35)  Batch time: 0.38(0.41)
+2023-12-03 22:41:41,754   INFO  Train:   31/32 ( 97%) [6169/6816 ( 91%)]  Loss: 7.568 (7.24)  LR: 2.404e-05  Time cost: 41:57/04:24 [44:23/50:45]  Acc_iter 210650      Data time: 0.04(0.06)  Forward time: 0.35(0.35)  Batch time: 0.39(0.41)
+2023-12-03 22:42:02,280   INFO  Train:   31/32 ( 97%) [6219/6816 ( 91%)]  Loss: 6.544 (7.24)  LR: 2.372e-05  Time cost: 42:18/04:03 [44:43/50:25]  Acc_iter 210700      Data time: 0.06(0.06)  Forward time: 0.46(0.35)  Batch time: 0.52(0.41)
+2023-12-03 22:42:24,257   INFO  Train:   31/32 ( 97%) [6269/6816 ( 92%)]  Loss: 6.999 (7.24)  LR: 2.340e-05  Time cost: 42:40/03:43 [45:05/50:06]  Acc_iter 210750      Data time: 0.03(0.06)  Forward time: 0.34(0.35)  Batch time: 0.37(0.41)
+2023-12-03 22:42:41,676   INFO  Train:   31/32 ( 97%) [6319/6816 ( 93%)]  Loss: 6.604 (7.23)  LR: 2.309e-05  Time cost: 42:57/03:22 [45:23/49:42]  Acc_iter 210800      Data time: 0.01(0.06)  Forward time: 0.34(0.35)  Batch time: 0.36(0.41)
+2023-12-03 22:43:02,215   INFO  Train:   31/32 ( 97%) [6369/6816 ( 93%)]  Loss: 7.191 (7.23)  LR: 2.277e-05  Time cost: 43:18/03:02 [45:43/49:22]  Acc_iter 210850      Data time: 0.05(0.06)  Forward time: 0.38(0.35)  Batch time: 0.43(0.41)
+2023-12-03 22:43:23,233   INFO  Train:   31/32 ( 97%) [6419/6816 ( 94%)]  Loss: 7.860 (7.24)  LR: 2.246e-05  Time cost: 43:39/02:41 [46:04/49:02]  Acc_iter 210900      Data time: 0.06(0.06)  Forward time: 0.34(0.35)  Batch time: 0.40(0.41)
+2023-12-03 22:43:42,039   INFO  Train:   31/32 ( 97%) [6469/6816 ( 95%)]  Loss: 6.506 (7.23)  LR: 2.215e-05  Time cost: 43:57/02:21 [46:23/48:40]  Acc_iter 210950      Data time: 0.02(0.06)  Forward time: 0.37(0.35)  Batch time: 0.40(0.41)
+2023-12-03 22:44:02,046   INFO  Train:   31/32 ( 97%) [6519/6816 ( 96%)]  Loss: 7.737 (7.23)  LR: 2.184e-05  Time cost: 44:18/02:01 [46:43/48:19]  Acc_iter 211000      Data time: 0.04(0.06)  Forward time: 0.37(0.35)  Batch time: 0.41(0.41)
+2023-12-03 22:44:22,430   INFO  Train:   31/32 ( 97%) [6569/6816 ( 96%)]  Loss: 7.632 (7.23)  LR: 2.154e-05  Time cost: 44:38/01:40 [47:03/47:59]  Acc_iter 211050      Data time: 0.04(0.06)  Forward time: 0.36(0.35)  Batch time: 0.40(0.41)
+2023-12-03 22:44:41,880   INFO  Train:   31/32 ( 97%) [6619/6816 ( 97%)]  Loss: 6.845 (7.23)  LR: 2.124e-05  Time cost: 44:57/01:20 [47:23/47:37]  Acc_iter 211100      Data time: 0.04(0.06)  Forward time: 0.33(0.35)  Batch time: 0.37(0.41)
+2023-12-03 22:44:44,517   INFO  Save latest model to /home/student/models/waymokitti_models/centerpoint_second/varsha2/ckpt/latest_model
+2023-12-03 22:45:01,076   INFO  Train:   31/32 ( 97%) [6669/6816 ( 98%)]  Loss: 8.537 (7.23)  LR: 2.094e-05  Time cost: 45:17/00:59 [47:42/47:16]  Acc_iter 211150      Data time: 0.09(0.06)  Forward time: 0.27(0.35)  Batch time: 0.36(0.41)
+2023-12-03 22:45:19,870   INFO  Train:   31/32 ( 97%) [6719/6816 ( 99%)]  Loss: 8.561 (7.24)  LR: 2.064e-05  Time cost: 45:35/00:39 [48:01/46:54]  Acc_iter 211200      Data time: 0.08(0.06)  Forward time: 0.29(0.35)  Batch time: 0.36(0.41)
+2023-12-03 22:45:41,375   INFO  Train:   31/32 ( 97%) [6769/6816 ( 99%)]  Loss: 7.260 (7.24)  LR: 2.034e-05  Time cost: 45:57/00:19 [48:22/46:35]  Acc_iter 211250      Data time: 0.08(0.06)  Forward time: 0.38(0.35)  Batch time: 0.46(0.41)
+2023-12-03 22:46:01,030   INFO  Train:   31/32 ( 97%) [6815/6816 (100%)]  Loss: 6.982 (7.25)  LR: 2.007e-05  Time cost: 46:16/00:00 [48:42/46:17]  Acc_iter 211296      Data time: 0.07(0.06)  Forward time: 0.35(0.35)  Batch time: 0.42(0.41)
+2023-12-03 22:46:02,999   INFO  Train:   32/32 (100%) [   0/6816 (  0%)]  Loss: 7.292 (7.29)  LR: 2.006e-05  Time cost: 00:01/3:16:17 [48:44/3:16:17]  Acc_iter 211297      Data time: 1.29(1.29)  Forward time: 0.39(0.39)  Batch time: 1.68(1.68)
+2023-12-03 22:46:04,217   INFO  Train:   32/32 (100%) [   3/6816 (  0%)]  Loss: 7.064 (7.19)  LR: 2.005e-05  Time cost: 00:02/1:23:38 [48:45/1:23:38]  Acc_iter 211300      Data time: 0.08(0.38)  Forward time: 0.33(0.34)  Batch time: 0.41(0.72)
+2023-12-03 22:46:24,233   INFO  Train:   32/32 (100%) [  53/6816 (  1%)]  Loss: 7.652 (7.25)  LR: 1.975e-05  Time cost: 00:22/47:55 [49:05/47:55]  Acc_iter 211350      Data time: 0.07(0.10)  Forward time: 0.34(0.33)  Batch time: 0.41(0.42)
+2023-12-03 22:46:45,202   INFO  Train:   32/32 (100%) [ 103/6816 (  2%)]  Loss: 6.949 (7.49)  LR: 1.946e-05  Time cost: 00:43/47:15 [49:26/47:15]  Acc_iter 211400      Data time: 0.04(0.08)  Forward time: 0.37(0.34)  Batch time: 0.42(0.42)
+2023-12-03 22:47:04,885   INFO  Train:   32/32 (100%) [ 153/6816 (  2%)]  Loss: 7.292 (7.40)  LR: 1.918e-05  Time cost: 01:03/45:52 [49:46/45:52]  Acc_iter 211450      Data time: 0.07(0.07)  Forward time: 0.27(0.34)  Batch time: 0.34(0.41)
+2023-12-03 22:47:29,840   INFO  Train:   32/32 (100%) [ 203/6816 (  3%)]  Loss: 8.240 (7.49)  LR: 1.889e-05  Time cost: 01:28/47:51 [50:11/47:51]  Acc_iter 211500      Data time: 0.02(0.07)  Forward time: 0.49(0.37)  Batch time: 0.51(0.43)
+2023-12-03 22:47:51,209   INFO  Train:   32/32 (100%) [ 253/6816 (  4%)]  Loss: 6.753 (7.48)  LR: 1.861e-05  Time cost: 01:49/47:20 [50:32/47:20]  Acc_iter 211550      Data time: 0.07(0.07)  Forward time: 0.27(0.37)  Batch time: 0.34(0.43)
+2023-12-03 22:48:09,601   INFO  Train:   32/32 (100%) [ 303/6816 (  4%)]  Loss: 7.276 (7.43)  LR: 1.833e-05  Time cost: 02:08/45:49 [50:51/45:49]  Acc_iter 211600      Data time: 0.03(0.07)  Forward time: 0.27(0.35)  Batch time: 0.31(0.42)
+2023-12-03 22:48:28,915   INFO  Train:   32/32 (100%) [ 353/6816 (  5%)]  Loss: 7.605 (7.45)  LR: 1.805e-05  Time cost: 02:27/44:55 [51:10/44:55]  Acc_iter 211650      Data time: 0.08(0.07)  Forward time: 0.32(0.35)  Batch time: 0.39(0.42)
+2023-12-03 22:48:47,671   INFO  Train:   32/32 (100%) [ 403/6816 (  6%)]  Loss: 7.224 (7.45)  LR: 1.777e-05  Time cost: 02:46/44:01 [51:29/44:01]  Acc_iter 211700      Data time: 0.06(0.07)  Forward time: 0.33(0.34)  Batch time: 0.39(0.41)
+2023-12-03 22:49:08,531   INFO  Train:   32/32 (100%) [ 453/6816 (  7%)]  Loss: 6.631 (7.39)  LR: 1.750e-05  Time cost: 03:07/43:44 [51:49/43:44]  Acc_iter 211750      Data time: 0.05(0.07)  Forward time: 0.33(0.34)  Batch time: 0.39(0.41)
+2023-12-03 22:49:31,562   INFO  Train:   32/32 (100%) [ 503/6816 (  7%)]  Loss: 6.929 (7.34)  LR: 1.722e-05  Time cost: 03:30/43:54 [52:12/43:54]  Acc_iter 211800      Data time: 0.07(0.06)  Forward time: 0.46(0.35)  Batch time: 0.53(0.42)
+2023-12-03 22:49:56,897   INFO  Train:   32/32 (100%) [ 553/6816 (  8%)]  Loss: 8.013 (7.34)  LR: 1.695e-05  Time cost: 03:55/44:23 [52:38/44:23]  Acc_iter 211850      Data time: 0.04(0.06)  Forward time: 0.51(0.36)  Batch time: 0.55(0.43)
+2023-12-03 22:50:22,870   INFO  Train:   32/32 (100%) [ 603/6816 (  9%)]  Loss: 8.557 (7.39)  LR: 1.668e-05  Time cost: 04:21/44:50 [53:04/44:50]  Acc_iter 211900      Data time: 0.07(0.06)  Forward time: 0.43(0.37)  Batch time: 0.50(0.43)
+2023-12-03 22:50:46,252   INFO  Train:   32/32 (100%) [ 653/6816 ( 10%)]  Loss: 6.971 (7.42)  LR: 1.642e-05  Time cost: 04:44/44:45 [53:27/44:45]  Acc_iter 211950      Data time: 0.00(0.06)  Forward time: 0.35(0.37)  Batch time: 0.35(0.44)
+2023-12-03 22:51:01,656   INFO  Save latest model to /home/student/models/waymokitti_models/centerpoint_second/varsha2/ckpt/latest_model
+2023-12-03 22:51:07,127   INFO  Train:   32/32 (100%) [ 703/6816 ( 10%)]  Loss: 7.187 (7.39)  LR: 1.615e-05  Time cost: 05:05/44:15 [53:48/44:15]  Acc_iter 212000      Data time: 0.05(0.06)  Forward time: 0.43(0.37)  Batch time: 0.48(0.43)
+2023-12-03 22:51:30,866   INFO  Train:   32/32 (100%) [ 753/6816 ( 11%)]  Loss: 7.495 (7.42)  LR: 1.589e-05  Time cost: 05:29/44:10 [54:12/44:10]  Acc_iter 212050      Data time: 0.06(0.06)  Forward time: 0.35(0.38)  Batch time: 0.40(0.44)
+2023-12-03 22:51:52,144   INFO  Train:   32/32 (100%) [ 803/6816 ( 12%)]  Loss: 6.533 (7.41)  LR: 1.563e-05  Time cost: 05:50/43:44 [54:33/43:44]  Acc_iter 212100      Data time: 0.06(0.06)  Forward time: 0.42(0.38)  Batch time: 0.48(0.44)
+2023-12-03 22:52:16,439   INFO  Train:   32/32 (100%) [ 853/6816 ( 13%)]  Loss: 6.904 (7.38)  LR: 1.537e-05  Time cost: 06:15/43:39 [54:57/43:39]  Acc_iter 212150      Data time: 0.00(0.06)  Forward time: 0.51(0.38)  Batch time: 0.52(0.44)
+2023-12-03 22:52:37,348   INFO  Train:   32/32 (100%) [ 903/6816 ( 13%)]  Loss: 6.686 (7.35)  LR: 1.512e-05  Time cost: 06:36/43:10 [55:18/43:10]  Acc_iter 212200      Data time: 0.03(0.06)  Forward time: 0.51(0.38)  Batch time: 0.54(0.44)
+2023-12-03 22:52:58,030   INFO  Train:   32/32 (100%) [ 953/6816 ( 14%)]  Loss: 6.533 (7.34)  LR: 1.486e-05  Time cost: 06:56/42:41 [55:39/42:41]  Acc_iter 212250      Data time: 0.07(0.06)  Forward time: 0.30(0.38)  Batch time: 0.37(0.44)
+2023-12-03 22:53:16,640   INFO  Train:   32/32 (100%) [1003/6816 ( 15%)]  Loss: 7.134 (7.32)  LR: 1.461e-05  Time cost: 07:15/42:00 [55:58/42:00]  Acc_iter 212300      Data time: 0.06(0.06)  Forward time: 0.30(0.37)  Batch time: 0.36(0.43)
+2023-12-03 22:53:36,066   INFO  Train:   32/32 (100%) [1053/6816 ( 15%)]  Loss: 7.712 (7.31)  LR: 1.436e-05  Time cost: 07:34/41:26 [56:17/41:26]  Acc_iter 212350      Data time: 0.09(0.06)  Forward time: 0.31(0.37)  Batch time: 0.40(0.43)
+2023-12-03 22:53:56,081   INFO  Train:   32/32 (100%) [1103/6816 ( 16%)]  Loss: 7.157 (7.30)  LR: 1.411e-05  Time cost: 07:54/40:57 [56:37/40:57]  Acc_iter 212400      Data time: 0.07(0.06)  Forward time: 0.30(0.37)  Batch time: 0.38(0.43)
+2023-12-03 22:54:18,984   INFO  Train:   32/32 (100%) [1153/6816 ( 17%)]  Loss: 6.813 (7.31)  LR: 1.387e-05  Time cost: 08:17/40:42 [57:00/40:42]  Acc_iter 212450      Data time: 0.00(0.06)  Forward time: 0.59(0.37)  Batch time: 0.59(0.43)
+2023-12-03 22:54:42,340   INFO  Train:   32/32 (100%) [1203/6816 ( 18%)]  Loss: 6.731 (7.29)  LR: 1.363e-05  Time cost: 08:41/40:29 [57:23/40:29]  Acc_iter 212500      Data time: 0.07(0.06)  Forward time: 0.40(0.37)  Batch time: 0.47(0.43)
+2023-12-03 22:55:05,937   INFO  Train:   32/32 (100%) [1253/6816 ( 18%)]  Loss: 6.792 (7.30)  LR: 1.339e-05  Time cost: 09:04/40:16 [57:47/40:16]  Acc_iter 212550      Data time: 0.08(0.06)  Forward time: 0.45(0.37)  Batch time: 0.52(0.43)
+2023-12-03 22:55:27,655   INFO  Train:   32/32 (100%) [1303/6816 ( 19%)]  Loss: 7.982 (7.29)  LR: 1.315e-05  Time cost: 09:26/39:54 [58:09/39:54]  Acc_iter 212600      Data time: 0.10(0.06)  Forward time: 0.31(0.37)  Batch time: 0.41(0.43)
+2023-12-03 22:55:46,772   INFO  Train:   32/32 (100%) [1353/6816 ( 20%)]  Loss: 7.534 (7.27)  LR: 1.291e-05  Time cost: 09:45/39:22 [58:28/39:22]  Acc_iter 212650      Data time: 0.07(0.06)  Forward time: 0.29(0.37)  Batch time: 0.36(0.43)
+2023-12-03 22:56:01,597   INFO  Save latest model to /home/student/models/waymokitti_models/centerpoint_second/varsha2/ckpt/latest_model
+2023-12-03 22:56:06,778   INFO  Train:   32/32 (100%) [1403/6816 ( 21%)]  Loss: 8.004 (7.29)  LR: 1.268e-05  Time cost: 10:05/38:54 [58:48/38:54]  Acc_iter 212700      Data time: 0.07(0.06)  Forward time: 0.31(0.37)  Batch time: 0.39(0.43)
+2023-12-03 22:56:25,227   INFO  Train:   32/32 (100%) [1453/6816 ( 21%)]  Loss: 7.239 (7.29)  LR: 1.244e-05  Time cost: 10:23/38:21 [59:06/38:21]  Acc_iter 212750      Data time: 0.07(0.07)  Forward time: 0.29(0.36)  Batch time: 0.36(0.43)
+2023-12-03 22:56:43,104   INFO  Train:   32/32 (100%) [1503/6816 ( 22%)]  Loss: 7.269 (7.29)  LR: 1.221e-05  Time cost: 10:41/37:47 [59:24/37:47]  Acc_iter 212800      Data time: 0.07(0.07)  Forward time: 0.26(0.36)  Batch time: 0.33(0.43)
+2023-12-03 22:57:04,262   INFO  Train:   32/32 (100%) [1553/6816 ( 23%)]  Loss: 6.586 (7.30)  LR: 1.199e-05  Time cost: 11:02/37:25 [59:45/37:25]  Acc_iter 212850      Data time: 0.05(0.06)  Forward time: 0.31(0.36)  Batch time: 0.36(0.43)
+2023-12-03 22:57:23,988   INFO  Train:   32/32 (100%) [1603/6816 ( 24%)]  Loss: 7.695 (7.29)  LR: 1.176e-05  Time cost: 11:22/36:58 [1:00:05/36:58]  Acc_iter 212900      Data time: 0.05(0.06)  Forward time: 0.33(0.36)  Batch time: 0.38(0.43)
+2023-12-03 22:57:43,579   INFO  Train:   32/32 (100%) [1653/6816 ( 24%)]  Loss: 6.856 (7.28)  LR: 1.154e-05  Time cost: 11:42/36:32 [1:00:24/36:32]  Acc_iter 212950      Data time: 0.06(0.06)  Forward time: 0.34(0.36)  Batch time: 0.40(0.42)
+2023-12-03 22:58:03,955   INFO  Train:   32/32 (100%) [1703/6816 ( 25%)]  Loss: 6.219 (7.27)  LR: 1.131e-05  Time cost: 12:02/36:08 [1:00:45/36:08]  Acc_iter 213000      Data time: 0.06(0.06)  Forward time: 0.35(0.36)  Batch time: 0.40(0.42)
+2023-12-03 22:58:28,516   INFO  Train:   32/32 (100%) [1753/6816 ( 26%)]  Loss: 7.363 (7.28)  LR: 1.110e-05  Time cost: 12:27/35:56 [1:01:09/35:56]  Acc_iter 213050      Data time: 0.06(0.06)  Forward time: 0.33(0.36)  Batch time: 0.39(0.43)
+2023-12-03 22:58:46,681   INFO  Train:   32/32 (100%) [1803/6816 ( 26%)]  Loss: 7.812 (7.29)  LR: 1.088e-05  Time cost: 12:45/35:26 [1:01:28/35:26]  Acc_iter 213100      Data time: 0.03(0.06)  Forward time: 0.32(0.36)  Batch time: 0.35(0.42)
+2023-12-03 22:59:06,437   INFO  Train:   32/32 (100%) [1853/6816 ( 27%)]  Loss: 7.377 (7.29)  LR: 1.066e-05  Time cost: 13:05/35:01 [1:01:47/35:01]  Acc_iter 213150      Data time: 0.06(0.06)  Forward time: 0.35(0.36)  Batch time: 0.41(0.42)
+2023-12-03 22:59:25,925   INFO  Train:   32/32 (100%) [1903/6816 ( 28%)]  Loss: 6.898 (7.27)  LR: 1.045e-05  Time cost: 13:24/34:36 [1:02:07/34:36]  Acc_iter 213200      Data time: 0.06(0.06)  Forward time: 0.35(0.36)  Batch time: 0.40(0.42)
+2023-12-03 22:59:45,865   INFO  Train:   32/32 (100%) [1953/6816 ( 29%)]  Loss: 7.740 (7.28)  LR: 1.024e-05  Time cost: 13:44/34:12 [1:02:27/34:12]  Acc_iter 213250      Data time: 0.05(0.06)  Forward time: 0.37(0.36)  Batch time: 0.43(0.42)
+2023-12-03 23:00:05,677   INFO  Train:   32/32 (100%) [2003/6816 ( 29%)]  Loss: 7.087 (7.29)  LR: 1.003e-05  Time cost: 14:04/33:48 [1:02:47/33:48]  Acc_iter 213300      Data time: 0.06(0.06)  Forward time: 0.31(0.36)  Batch time: 0.37(0.42)
+2023-12-03 23:00:25,074   INFO  Train:   32/32 (100%) [2053/6816 ( 30%)]  Loss: 7.417 (7.29)  LR: 9.824e-06  Time cost: 14:23/33:23 [1:03:06/33:23]  Acc_iter 213350      Data time: 0.06(0.06)  Forward time: 0.31(0.36)  Batch time: 0.38(0.42)
+2023-12-03 23:00:45,278   INFO  Train:   32/32 (100%) [2103/6816 ( 31%)]  Loss: 6.969 (7.29)  LR: 9.620e-06  Time cost: 14:44/33:00 [1:03:26/33:00]  Acc_iter 213400      Data time: 0.03(0.06)  Forward time: 0.35(0.36)  Batch time: 0.39(0.42)
+2023-12-03 23:01:01,727   INFO  Save latest model to /home/student/models/waymokitti_models/centerpoint_second/varsha2/ckpt/latest_model
+2023-12-03 23:01:06,273   INFO  Train:   32/32 (100%) [2153/6816 ( 32%)]  Loss: 8.444 (7.29)  LR: 9.418e-06  Time cost: 15:05/32:39 [1:03:47/32:39]  Acc_iter 213450      Data time: 0.09(0.06)  Forward time: 0.29(0.36)  Batch time: 0.38(0.42)
+2023-12-03 23:01:27,877   INFO  Train:   32/32 (100%) [2203/6816 ( 32%)]  Loss: 7.006 (7.30)  LR: 9.218e-06  Time cost: 15:26/32:19 [1:04:09/32:19]  Acc_iter 213500      Data time: 0.00(0.06)  Forward time: 0.49(0.36)  Batch time: 0.49(0.42)
+2023-12-03 23:01:47,915   INFO  Train:   32/32 (100%) [2253/6816 ( 33%)]  Loss: 8.090 (7.31)  LR: 9.020e-06  Time cost: 15:46/31:56 [1:04:29/31:56]  Acc_iter 213550      Data time: 0.02(0.06)  Forward time: 0.36(0.36)  Batch time: 0.38(0.42)
+2023-12-03 23:02:08,031   INFO  Train:   32/32 (100%) [2303/6816 ( 34%)]  Loss: 7.038 (7.32)  LR: 8.824e-06  Time cost: 16:06/31:33 [1:04:49/31:33]  Acc_iter 213600      Data time: 0.03(0.06)  Forward time: 0.38(0.36)  Batch time: 0.41(0.42)
+2023-12-03 23:02:27,599   INFO  Train:   32/32 (100%) [2353/6816 ( 35%)]  Loss: 7.015 (7.31)  LR: 8.631e-06  Time cost: 16:26/31:10 [1:05:09/31:10]  Acc_iter 213650      Data time: 0.04(0.06)  Forward time: 0.35(0.36)  Batch time: 0.39(0.42)
+2023-12-03 23:02:47,079   INFO  Train:   32/32 (100%) [2403/6816 ( 35%)]  Loss: 6.644 (7.30)  LR: 8.439e-06  Time cost: 16:45/30:46 [1:05:28/30:46]  Acc_iter 213700      Data time: 0.03(0.06)  Forward time: 0.35(0.36)  Batch time: 0.38(0.42)
+2023-12-03 23:03:05,928   INFO  Train:   32/32 (100%) [2453/6816 ( 36%)]  Loss: 6.965 (7.30)  LR: 8.250e-06  Time cost: 17:04/30:21 [1:05:47/30:21]  Acc_iter 213750      Data time: 0.03(0.06)  Forward time: 0.37(0.36)  Batch time: 0.39(0.42)
+2023-12-03 23:03:25,273   INFO  Train:   32/32 (100%) [2503/6816 ( 37%)]  Loss: 7.925 (7.31)  LR: 8.063e-06  Time cost: 17:24/29:58 [1:06:06/29:58]  Acc_iter 213800      Data time: 0.03(0.06)  Forward time: 0.36(0.36)  Batch time: 0.39(0.42)
+2023-12-03 23:03:45,633   INFO  Train:   32/32 (100%) [2553/6816 ( 37%)]  Loss: 7.037 (7.30)  LR: 7.878e-06  Time cost: 17:44/29:36 [1:06:27/29:36]  Acc_iter 213850      Data time: 0.06(0.06)  Forward time: 0.34(0.36)  Batch time: 0.39(0.42)
+2023-12-03 23:04:06,256   INFO  Train:   32/32 (100%) [2603/6816 ( 38%)]  Loss: 6.878 (7.29)  LR: 7.695e-06  Time cost: 18:04/29:15 [1:06:47/29:15]  Acc_iter 213900      Data time: 0.05(0.06)  Forward time: 0.36(0.36)  Batch time: 0.41(0.42)
+2023-12-03 23:04:32,005   INFO  Train:   32/32 (100%) [2653/6816 ( 39%)]  Loss: 8.113 (7.30)  LR: 7.514e-06  Time cost: 18:30/29:02 [1:07:13/29:02]  Acc_iter 213950      Data time: 0.05(0.06)  Forward time: 0.42(0.36)  Batch time: 0.48(0.42)
+2023-12-03 23:04:53,738   INFO  Train:   32/32 (100%) [2703/6816 ( 40%)]  Loss: 6.573 (7.31)  LR: 7.336e-06  Time cost: 18:52/28:42 [1:07:35/28:42]  Acc_iter 214000      Data time: 0.03(0.06)  Forward time: 0.32(0.36)  Batch time: 0.36(0.42)
+2023-12-03 23:05:10,764   INFO  Train:   32/32 (100%) [2753/6816 ( 40%)]  Loss: 6.745 (7.30)  LR: 7.159e-06  Time cost: 19:09/28:15 [1:07:52/28:15]  Acc_iter 214050      Data time: 0.03(0.06)  Forward time: 0.29(0.36)  Batch time: 0.32(0.42)
+2023-12-03 23:05:32,319   INFO  Train:   32/32 (100%) [2803/6816 ( 41%)]  Loss: 7.878 (7.31)  LR: 6.985e-06  Time cost: 19:31/27:55 [1:08:13/27:55]  Acc_iter 214100      Data time: 0.05(0.06)  Forward time: 0.42(0.36)  Batch time: 0.46(0.42)
+2023-12-03 23:05:55,730   INFO  Train:   32/32 (100%) [2853/6816 ( 42%)]  Loss: 7.702 (7.32)  LR: 6.813e-06  Time cost: 19:54/27:38 [1:08:37/27:38]  Acc_iter 214150      Data time: 0.08(0.06)  Forward time: 0.32(0.36)  Batch time: 0.39(0.42)
+2023-12-03 23:06:01,990   INFO  Save latest model to /home/student/models/waymokitti_models/centerpoint_second/varsha2/ckpt/latest_model
+2023-12-03 23:06:16,517   INFO  Train:   32/32 (100%) [2903/6816 ( 43%)]  Loss: 6.808 (7.32)  LR: 6.643e-06  Time cost: 20:15/27:17 [1:08:57/27:17]  Acc_iter 214200      Data time: 0.04(0.06)  Forward time: 0.35(0.36)  Batch time: 0.39(0.42)
+2023-12-03 23:06:35,511   INFO  Train:   32/32 (100%) [2953/6816 ( 43%)]  Loss: 6.994 (7.32)  LR: 6.475e-06  Time cost: 20:34/26:54 [1:09:16/26:54]  Acc_iter 214250      Data time: 0.06(0.06)  Forward time: 0.31(0.36)  Batch time: 0.36(0.42)
+2023-12-03 23:06:54,647   INFO  Train:   32/32 (100%) [3003/6816 ( 44%)]  Loss: 7.072 (7.31)  LR: 6.309e-06  Time cost: 20:53/26:30 [1:09:36/26:30]  Acc_iter 214300      Data time: 0.03(0.06)  Forward time: 0.52(0.36)  Batch time: 0.55(0.42)
+2023-12-03 23:07:16,099   INFO  Train:   32/32 (100%) [3053/6816 ( 45%)]  Loss: 7.190 (7.31)  LR: 6.146e-06  Time cost: 21:14/26:10 [1:09:57/26:10]  Acc_iter 214350      Data time: 0.05(0.06)  Forward time: 0.39(0.36)  Batch time: 0.44(0.42)
+2023-12-03 23:07:36,242   INFO  Train:   32/32 (100%) [3103/6816 ( 46%)]  Loss: 7.041 (7.31)  LR: 5.985e-06  Time cost: 21:34/25:49 [1:10:17/25:49]  Acc_iter 214400      Data time: 0.04(0.06)  Forward time: 0.35(0.36)  Batch time: 0.39(0.42)
+2023-12-03 23:07:56,005   INFO  Train:   32/32 (100%) [3153/6816 ( 46%)]  Loss: 7.241 (7.30)  LR: 5.825e-06  Time cost: 21:54/25:26 [1:10:37/25:26]  Acc_iter 214450      Data time: 0.04(0.06)  Forward time: 0.35(0.36)  Batch time: 0.39(0.42)
+2023-12-03 23:08:19,950   INFO  Train:   32/32 (100%) [3203/6816 ( 47%)]  Loss: 7.312 (7.29)  LR: 5.668e-06  Time cost: 22:18/25:09 [1:11:01/25:09]  Acc_iter 214500      Data time: 0.06(0.06)  Forward time: 0.46(0.36)  Batch time: 0.52(0.42)
+2023-12-03 23:08:46,962   INFO  Train:   32/32 (100%) [3253/6816 ( 48%)]  Loss: 7.609 (7.29)  LR: 5.513e-06  Time cost: 22:45/24:55 [1:11:28/24:55]  Acc_iter 214550      Data time: 0.07(0.05)  Forward time: 0.36(0.36)  Batch time: 0.43(0.42)
+2023-12-03 23:09:08,131   INFO  Train:   32/32 (100%) [3303/6816 ( 48%)]  Loss: 7.634 (7.29)  LR: 5.361e-06  Time cost: 23:06/24:34 [1:11:49/24:34]  Acc_iter 214600      Data time: 0.06(0.05)  Forward time: 0.34(0.36)  Batch time: 0.40(0.42)
+2023-12-03 23:09:33,014   INFO  Train:   32/32 (100%) [3353/6816 ( 49%)]  Loss: 6.492 (7.28)  LR: 5.210e-06  Time cost: 23:31/24:17 [1:12:14/24:17]  Acc_iter 214650      Data time: 0.00(0.05)  Forward time: 0.53(0.37)  Batch time: 0.54(0.42)
+2023-12-03 23:09:55,739   INFO  Train:   32/32 (100%) [3403/6816 ( 50%)]  Loss: 7.661 (7.28)  LR: 5.062e-06  Time cost: 23:54/23:58 [1:12:37/23:58]  Acc_iter 214700      Data time: 0.04(0.05)  Forward time: 0.35(0.37)  Batch time: 0.39(0.42)
+2023-12-03 23:10:14,367   INFO  Train:   32/32 (100%) [3453/6816 ( 51%)]  Loss: 7.247 (7.28)  LR: 4.915e-06  Time cost: 24:13/23:34 [1:12:55/23:34]  Acc_iter 214750      Data time: 0.07(0.05)  Forward time: 0.30(0.37)  Batch time: 0.38(0.42)
+2023-12-03 23:10:34,130   INFO  Train:   32/32 (100%) [3503/6816 ( 51%)]  Loss: 7.010 (7.28)  LR: 4.771e-06  Time cost: 24:32/23:12 [1:13:15/23:12]  Acc_iter 214800      Data time: 0.08(0.05)  Forward time: 0.27(0.37)  Batch time: 0.35(0.42)
+2023-12-03 23:10:51,524   INFO  Train:   32/32 (100%) [3553/6816 ( 52%)]  Loss: 6.692 (7.27)  LR: 4.629e-06  Time cost: 24:50/22:48 [1:13:32/22:48]  Acc_iter 214850      Data time: 0.05(0.06)  Forward time: 0.27(0.36)  Batch time: 0.32(0.42)
+2023-12-03 23:11:01,771   INFO  Save latest model to /home/student/models/waymokitti_models/centerpoint_second/varsha2/ckpt/latest_model
+2023-12-03 23:11:11,923   INFO  Train:   32/32 (100%) [3603/6816 ( 53%)]  Loss: 6.966 (7.27)  LR: 4.490e-06  Time cost: 25:10/22:26 [1:13:53/22:26]  Acc_iter 214900      Data time: 0.06(0.06)  Forward time: 0.28(0.36)  Batch time: 0.34(0.42)
+2023-12-03 23:11:33,176   INFO  Train:   32/32 (100%) [3653/6816 ( 54%)]  Loss: 8.512 (7.27)  LR: 4.352e-06  Time cost: 25:31/22:06 [1:14:14/22:06]  Acc_iter 214950      Data time: 0.09(0.06)  Forward time: 0.45(0.36)  Batch time: 0.54(0.42)
+2023-12-03 23:12:00,661   INFO  Train:   32/32 (100%) [3703/6816 ( 54%)]  Loss: 8.592 (7.28)  LR: 4.216e-06  Time cost: 25:59/21:50 [1:14:42/21:50]  Acc_iter 215000      Data time: 0.05(0.06)  Forward time: 0.45(0.37)  Batch time: 0.50(0.42)
+2023-12-03 23:12:21,245   INFO  Train:   32/32 (100%) [3753/6816 ( 55%)]  Loss: 6.888 (7.28)  LR: 4.083e-06  Time cost: 26:19/21:29 [1:15:02/21:29]  Acc_iter 215050      Data time: 0.06(0.06)  Forward time: 0.34(0.37)  Batch time: 0.40(0.42)
+2023-12-03 23:12:40,974   INFO  Train:   32/32 (100%) [3803/6816 ( 56%)]  Loss: 7.376 (7.28)  LR: 3.952e-06  Time cost: 26:39/21:07 [1:15:22/21:07]  Acc_iter 215100      Data time: 0.00(0.06)  Forward time: 0.33(0.37)  Batch time: 0.33(0.42)
+2023-12-03 23:12:59,908   INFO  Train:   32/32 (100%) [3853/6816 ( 57%)]  Loss: 6.814 (7.27)  LR: 3.823e-06  Time cost: 26:58/20:44 [1:15:41/20:44]  Acc_iter 215150      Data time: 0.05(0.06)  Forward time: 0.36(0.36)  Batch time: 0.42(0.42)
+2023-12-03 23:13:22,009   INFO  Train:   32/32 (100%) [3903/6816 ( 57%)]  Loss: 7.399 (7.27)  LR: 3.696e-06  Time cost: 27:20/20:24 [1:16:03/20:24]  Acc_iter 215200      Data time: 0.05(0.06)  Forward time: 0.42(0.37)  Batch time: 0.47(0.42)
+2023-12-03 23:13:46,085   INFO  Train:   32/32 (100%) [3953/6816 ( 58%)]  Loss: 7.814 (7.28)  LR: 3.571e-06  Time cost: 27:44/20:05 [1:16:27/20:05]  Acc_iter 215250      Data time: 0.03(0.06)  Forward time: 0.46(0.37)  Batch time: 0.49(0.42)
+2023-12-03 23:14:08,516   INFO  Train:   32/32 (100%) [4003/6816 ( 59%)]  Loss: 7.114 (7.28)  LR: 3.449e-06  Time cost: 28:07/19:45 [1:16:49/19:45]  Acc_iter 215300      Data time: 0.05(0.05)  Forward time: 0.35(0.37)  Batch time: 0.40(0.42)
+2023-12-03 23:14:30,752   INFO  Train:   32/32 (100%) [4053/6816 ( 59%)]  Loss: 6.981 (7.28)  LR: 3.328e-06  Time cost: 28:29/19:25 [1:17:12/19:25]  Acc_iter 215350      Data time: 0.05(0.05)  Forward time: 0.35(0.37)  Batch time: 0.40(0.42)
+2023-12-03 23:14:53,010   INFO  Train:   32/32 (100%) [4103/6816 ( 60%)]  Loss: 7.131 (7.28)  LR: 3.210e-06  Time cost: 28:51/19:04 [1:17:34/19:04]  Acc_iter 215400      Data time: 0.02(0.05)  Forward time: 0.34(0.37)  Batch time: 0.36(0.42)
+2023-12-03 23:15:16,217   INFO  Train:   32/32 (100%) [4153/6816 ( 61%)]  Loss: 8.010 (7.28)  LR: 3.094e-06  Time cost: 29:14/18:45 [1:17:57/18:45]  Acc_iter 215450      Data time: 0.02(0.05)  Forward time: 0.53(0.37)  Batch time: 0.55(0.42)
+2023-12-03 23:15:40,539   INFO  Train:   32/32 (100%) [4203/6816 ( 62%)]  Loss: 8.223 (7.28)  LR: 2.980e-06  Time cost: 29:39/18:25 [1:18:21/18:25]  Acc_iter 215500      Data time: 0.02(0.05)  Forward time: 0.31(0.37)  Batch time: 0.34(0.42)
+2023-12-03 23:16:00,548   INFO  Train:   32/32 (100%) [4253/6816 ( 62%)]  Loss: 7.568 (7.29)  LR: 2.868e-06  Time cost: 29:59/18:04 [1:18:41/18:04]  Acc_iter 215550      Data time: 0.08(0.06)  Forward time: 0.32(0.37)  Batch time: 0.40(0.42)
+2023-12-03 23:16:01,631   INFO  Save latest model to /home/student/models/waymokitti_models/centerpoint_second/varsha2/ckpt/latest_model
+2023-12-03 23:16:19,696   INFO  Train:   32/32 (100%) [4303/6816 ( 63%)]  Loss: 7.358 (7.29)  LR: 2.759e-06  Time cost: 30:18/17:41 [1:19:01/17:41]  Acc_iter 215600      Data time: 0.09(0.06)  Forward time: 0.28(0.37)  Batch time: 0.36(0.42)
+2023-12-03 23:16:42,203   INFO  Train:   32/32 (100%) [4353/6816 ( 64%)]  Loss: 7.168 (7.29)  LR: 2.651e-06  Time cost: 30:40/17:21 [1:19:23/17:21]  Acc_iter 215650      Data time: 0.06(0.06)  Forward time: 0.35(0.37)  Batch time: 0.41(0.42)
+2023-12-03 23:17:01,469   INFO  Train:   32/32 (100%) [4403/6816 ( 65%)]  Loss: 6.930 (7.28)  LR: 2.546e-06  Time cost: 31:00/16:59 [1:19:42/16:59]  Acc_iter 215700      Data time: 0.05(0.06)  Forward time: 0.34(0.37)  Batch time: 0.39(0.42)
+2023-12-03 23:17:20,255   INFO  Train:   32/32 (100%) [4453/6816 ( 65%)]  Loss: 6.416 (7.28)  LR: 2.443e-06  Time cost: 31:18/16:36 [1:20:01/16:36]  Acc_iter 215750      Data time: 0.05(0.06)  Forward time: 0.31(0.37)  Batch time: 0.36(0.42)
+2023-12-03 23:17:38,402   INFO  Train:   32/32 (100%) [4503/6816 ( 66%)]  Loss: 7.653 (7.28)  LR: 2.342e-06  Time cost: 31:37/16:14 [1:20:19/16:14]  Acc_iter 215800      Data time: 0.07(0.06)  Forward time: 0.43(0.37)  Batch time: 0.50(0.42)
+2023-12-03 23:18:01,509   INFO  Train:   32/32 (100%) [4553/6816 ( 67%)]  Loss: 8.186 (7.28)  LR: 2.243e-06  Time cost: 32:00/15:54 [1:20:42/15:54]  Acc_iter 215850      Data time: 0.06(0.06)  Forward time: 0.35(0.37)  Batch time: 0.41(0.42)
+2023-12-03 23:18:21,880   INFO  Train:   32/32 (100%) [4603/6816 ( 68%)]  Loss: 6.999 (7.28)  LR: 2.146e-06  Time cost: 32:20/15:32 [1:21:03/15:32]  Acc_iter 215900      Data time: 0.06(0.06)  Forward time: 0.35(0.37)  Batch time: 0.41(0.42)
+2023-12-03 23:18:43,930   INFO  Train:   32/32 (100%) [4653/6816 ( 68%)]  Loss: 6.906 (7.27)  LR: 2.052e-06  Time cost: 32:42/15:12 [1:21:25/15:12]  Acc_iter 215950      Data time: 0.06(0.05)  Forward time: 0.35(0.37)  Batch time: 0.41(0.42)
+2023-12-03 23:19:05,725   INFO  Train:   32/32 (100%) [4703/6816 ( 69%)]  Loss: 7.934 (7.28)  LR: 1.959e-06  Time cost: 33:04/14:51 [1:21:47/14:51]  Acc_iter 216000      Data time: 0.06(0.05)  Forward time: 0.37(0.37)  Batch time: 0.43(0.42)
+2023-12-03 23:19:26,439   INFO  Train:   32/32 (100%) [4753/6816 ( 70%)]  Loss: 7.018 (7.28)  LR: 1.869e-06  Time cost: 33:25/14:30 [1:22:07/14:30]  Acc_iter 216050      Data time: 0.04(0.05)  Forward time: 0.34(0.37)  Batch time: 0.38(0.42)
+2023-12-03 23:19:46,257   INFO  Train:   32/32 (100%) [4803/6816 ( 70%)]  Loss: 7.676 (7.28)  LR: 1.781e-06  Time cost: 33:44/14:08 [1:22:27/14:08]  Acc_iter 216100      Data time: 0.06(0.05)  Forward time: 0.36(0.37)  Batch time: 0.42(0.42)
+2023-12-03 23:20:06,010   INFO  Train:   32/32 (100%) [4853/6816 ( 71%)]  Loss: 7.493 (7.28)  LR: 1.695e-06  Time cost: 34:04/13:46 [1:22:47/13:46]  Acc_iter 216150      Data time: 0.02(0.05)  Forward time: 0.34(0.37)  Batch time: 0.36(0.42)
+2023-12-03 23:20:24,451   INFO  Train:   32/32 (100%) [4903/6816 ( 72%)]  Loss: 7.488 (7.27)  LR: 1.611e-06  Time cost: 34:23/13:24 [1:23:05/13:24]  Acc_iter 216200      Data time: 0.05(0.05)  Forward time: 0.39(0.37)  Batch time: 0.44(0.42)
+2023-12-03 23:20:45,942   INFO  Train:   32/32 (100%) [4953/6816 ( 73%)]  Loss: 7.149 (7.28)  LR: 1.530e-06  Time cost: 34:44/13:03 [1:23:27/13:03]  Acc_iter 216250      Data time: 0.05(0.05)  Forward time: 0.35(0.37)  Batch time: 0.40(0.42)
+2023-12-03 23:21:01,742   INFO  Save latest model to /home/student/models/waymokitti_models/centerpoint_second/varsha2/ckpt/latest_model
+2023-12-03 23:21:05,105   INFO  Train:   32/32 (100%) [5003/6816 ( 73%)]  Loss: 7.015 (7.27)  LR: 1.450e-06  Time cost: 35:03/12:42 [1:23:46/12:42]  Acc_iter 216300      Data time: 0.05(0.05)  Forward time: 0.32(0.37)  Batch time: 0.37(0.42)
+2023-12-03 23:21:22,617   INFO  Train:   32/32 (100%) [5053/6816 ( 74%)]  Loss: 7.229 (7.27)  LR: 1.373e-06  Time cost: 35:21/12:19 [1:24:04/12:19]  Acc_iter 216350      Data time: 0.08(0.05)  Forward time: 0.29(0.37)  Batch time: 0.37(0.42)
+2023-12-03 23:21:42,089   INFO  Train:   32/32 (100%) [5103/6816 ( 75%)]  Loss: 6.692 (7.27)  LR: 1.298e-06  Time cost: 35:40/11:58 [1:24:23/11:58]  Acc_iter 216400      Data time: 0.04(0.05)  Forward time: 0.34(0.36)  Batch time: 0.38(0.42)
+2023-12-03 23:22:01,749   INFO  Train:   32/32 (100%) [5153/6816 ( 76%)]  Loss: 6.993 (7.27)  LR: 1.225e-06  Time cost: 36:00/11:37 [1:24:43/11:37]  Acc_iter 216450      Data time: 0.12(0.05)  Forward time: 0.49(0.36)  Batch time: 0.61(0.42)
+2023-12-03 23:22:25,343   INFO  Train:   32/32 (100%) [5203/6816 ( 76%)]  Loss: 6.569 (7.26)  LR: 1.154e-06  Time cost: 36:24/11:16 [1:25:06/11:16]  Acc_iter 216500      Data time: 0.06(0.05)  Forward time: 0.46(0.37)  Batch time: 0.52(0.42)
+2023-12-03 23:22:44,519   INFO  Train:   32/32 (100%) [5253/6816 ( 77%)]  Loss: 7.292 (7.26)  LR: 1.086e-06  Time cost: 36:43/10:55 [1:25:25/10:55]  Acc_iter 216550      Data time: 0.04(0.05)  Forward time: 0.31(0.36)  Batch time: 0.35(0.42)
+2023-12-03 23:23:03,071   INFO  Train:   32/32 (100%) [5303/6816 ( 78%)]  Loss: 7.409 (7.26)  LR: 1.019e-06  Time cost: 37:01/10:33 [1:25:44/10:33]  Acc_iter 216600      Data time: 0.05(0.05)  Forward time: 0.36(0.36)  Batch time: 0.40(0.42)
+2023-12-03 23:23:21,515   INFO  Train:   32/32 (100%) [5353/6816 ( 79%)]  Loss: 7.294 (7.26)  LR: 9.550e-07  Time cost: 37:20/10:12 [1:26:02/10:12]  Acc_iter 216650      Data time: 0.04(0.05)  Forward time: 0.32(0.36)  Batch time: 0.36(0.42)
+2023-12-03 23:23:42,816   INFO  Train:   32/32 (100%) [5403/6816 ( 79%)]  Loss: 6.689 (7.25)  LR: 8.928e-07  Time cost: 37:41/09:51 [1:26:24/09:51]  Acc_iter 216700      Data time: 0.06(0.05)  Forward time: 0.34(0.36)  Batch time: 0.40(0.42)
+2023-12-03 23:24:03,735   INFO  Train:   32/32 (100%) [5453/6816 ( 80%)]  Loss: 6.642 (7.25)  LR: 8.329e-07  Time cost: 38:02/09:30 [1:26:45/09:30]  Acc_iter 216750      Data time: 0.08(0.05)  Forward time: 0.31(0.36)  Batch time: 0.40(0.42)
+2023-12-03 23:24:20,303   INFO  Train:   32/32 (100%) [5503/6816 ( 81%)]  Loss: 6.798 (7.25)  LR: 7.750e-07  Time cost: 38:19/09:08 [1:27:01/09:08]  Acc_iter 216800      Data time: 0.08(0.05)  Forward time: 0.27(0.36)  Batch time: 0.35(0.42)
+2023-12-03 23:24:38,672   INFO  Train:   32/32 (100%) [5553/6816 ( 81%)]  Loss: 7.403 (7.25)  LR: 7.194e-07  Time cost: 38:37/08:46 [1:27:20/08:46]  Acc_iter 216850      Data time: 0.06(0.05)  Forward time: 0.36(0.36)  Batch time: 0.42(0.42)
+2023-12-03 23:24:59,609   INFO  Train:   32/32 (100%) [5603/6816 ( 82%)]  Loss: 7.397 (7.25)  LR: 6.659e-07  Time cost: 38:58/08:26 [1:27:41/08:26]  Acc_iter 216900      Data time: 0.06(0.05)  Forward time: 0.33(0.36)  Batch time: 0.38(0.42)
+2023-12-03 23:25:17,119   INFO  Train:   32/32 (100%) [5653/6816 ( 83%)]  Loss: 6.555 (7.25)  LR: 6.145e-07  Time cost: 39:15/08:04 [1:27:58/08:04]  Acc_iter 216950      Data time: 0.02(0.05)  Forward time: 0.33(0.36)  Batch time: 0.35(0.42)
+2023-12-03 23:25:34,984   INFO  Train:   32/32 (100%) [5703/6816 ( 84%)]  Loss: 6.490 (7.25)  LR: 5.654e-07  Time cost: 39:33/07:43 [1:28:16/07:43]  Acc_iter 217000      Data time: 0.05(0.05)  Forward time: 0.34(0.36)  Batch time: 0.39(0.42)
+2023-12-03 23:25:53,109   INFO  Train:   32/32 (100%) [5753/6816 ( 84%)]  Loss: 7.243 (7.24)  LR: 5.184e-07  Time cost: 39:51/07:21 [1:28:34/07:21]  Acc_iter 217050      Data time: 0.03(0.05)  Forward time: 0.32(0.36)  Batch time: 0.35(0.42)
+2023-12-03 23:26:01,744   INFO  Save latest model to /home/student/models/waymokitti_models/centerpoint_second/varsha2/ckpt/latest_model
+2023-12-03 23:26:12,826   INFO  Train:   32/32 (100%) [5803/6816 ( 85%)]  Loss: 7.420 (7.24)  LR: 4.735e-07  Time cost: 40:11/07:00 [1:28:54/07:00]  Acc_iter 217100      Data time: 0.05(0.05)  Forward time: 0.34(0.36)  Batch time: 0.39(0.42)
+2023-12-03 23:26:33,331   INFO  Train:   32/32 (100%) [5853/6816 ( 86%)]  Loss: 7.304 (7.24)  LR: 4.308e-07  Time cost: 40:32/06:40 [1:29:14/06:40]  Acc_iter 217150      Data time: 0.03(0.05)  Forward time: 0.35(0.36)  Batch time: 0.38(0.42)
+2023-12-03 23:26:57,223   INFO  Train:   32/32 (100%) [5903/6816 ( 87%)]  Loss: 7.834 (7.25)  LR: 3.903e-07  Time cost: 40:55/06:19 [1:29:38/06:19]  Acc_iter 217200      Data time: 0.03(0.05)  Forward time: 0.42(0.36)  Batch time: 0.45(0.42)
+2023-12-03 23:27:23,094   INFO  Train:   32/32 (100%) [5953/6816 ( 87%)]  Loss: 7.660 (7.25)  LR: 3.519e-07  Time cost: 41:21/05:59 [1:30:04/05:59]  Acc_iter 217250      Data time: 0.06(0.05)  Forward time: 0.44(0.36)  Batch time: 0.49(0.42)
+2023-12-03 23:27:46,815   INFO  Train:   32/32 (100%) [6003/6816 ( 88%)]  Loss: 7.895 (7.25)  LR: 3.157e-07  Time cost: 41:45/05:39 [1:30:28/05:39]  Acc_iter 217300      Data time: 0.05(0.05)  Forward time: 0.37(0.36)  Batch time: 0.41(0.42)
+2023-12-03 23:28:04,132   INFO  Train:   32/32 (100%) [6053/6816 ( 89%)]  Loss: 6.475 (7.25)  LR: 2.816e-07  Time cost: 42:02/05:17 [1:30:45/05:17]  Acc_iter 217350      Data time: 0.07(0.05)  Forward time: 0.26(0.36)  Batch time: 0.33(0.42)
+2023-12-03 23:28:20,934   INFO  Train:   32/32 (100%) [6103/6816 ( 90%)]  Loss: 7.259 (7.25)  LR: 2.497e-07  Time cost: 42:19/04:56 [1:31:02/04:56]  Acc_iter 217400      Data time: 0.08(0.05)  Forward time: 0.28(0.36)  Batch time: 0.36(0.42)
+2023-12-03 23:28:40,950   INFO  Train:   32/32 (100%) [6153/6816 ( 90%)]  Loss: 7.655 (7.25)  LR: 2.200e-07  Time cost: 42:39/04:35 [1:31:22/04:35]  Acc_iter 217450      Data time: 0.05(0.05)  Forward time: 0.38(0.36)  Batch time: 0.43(0.42)
+2023-12-03 23:29:01,235   INFO  Train:   32/32 (100%) [6203/6816 ( 91%)]  Loss: 6.984 (7.25)  LR: 1.924e-07  Time cost: 42:59/04:14 [1:31:42/04:14]  Acc_iter 217500      Data time: 0.06(0.05)  Forward time: 0.45(0.36)  Batch time: 0.50(0.42)
+2023-12-03 23:29:24,499   INFO  Train:   32/32 (100%) [6253/6816 ( 92%)]  Loss: 7.279 (7.25)  LR: 1.670e-07  Time cost: 43:23/03:54 [1:32:05/03:54]  Acc_iter 217550      Data time: 0.03(0.05)  Forward time: 0.49(0.36)  Batch time: 0.51(0.42)
+2023-12-03 23:29:42,833   INFO  Train:   32/32 (100%) [6303/6816 ( 92%)]  Loss: 6.610 (7.24)  LR: 1.437e-07  Time cost: 43:41/03:33 [1:32:24/03:33]  Acc_iter 217600      Data time: 0.02(0.05)  Forward time: 0.31(0.36)  Batch time: 0.33(0.42)
+2023-12-03 23:30:00,147   INFO  Train:   32/32 (100%) [6353/6816 ( 93%)]  Loss: 7.392 (7.24)  LR: 1.227e-07  Time cost: 43:58/03:12 [1:32:41/03:12]  Acc_iter 217650      Data time: 0.02(0.05)  Forward time: 0.49(0.36)  Batch time: 0.51(0.42)
+2023-12-03 23:30:19,652   INFO  Train:   32/32 (100%) [6403/6816 ( 94%)]  Loss: 8.553 (7.24)  LR: 1.037e-07  Time cost: 44:18/02:51 [1:33:01/02:51]  Acc_iter 217700      Data time: 0.09(0.05)  Forward time: 0.29(0.36)  Batch time: 0.38(0.42)
+2023-12-03 23:30:38,630   INFO  Train:   32/32 (100%) [6453/6816 ( 95%)]  Loss: 6.619 (7.24)  LR: 8.695e-08  Time cost: 44:37/02:30 [1:33:20/02:30]  Acc_iter 217750      Data time: 0.07(0.05)  Forward time: 0.27(0.36)  Batch time: 0.34(0.41)
+2023-12-03 23:30:55,907   INFO  Train:   32/32 (100%) [6503/6816 ( 95%)]  Loss: 6.428 (7.24)  LR: 7.234e-08  Time cost: 44:54/02:09 [1:33:37/02:09]  Acc_iter 217800      Data time: 0.07(0.05)  Forward time: 0.27(0.36)  Batch time: 0.34(0.41)
+2023-12-03 23:31:01,821   INFO  Save latest model to /home/student/models/waymokitti_models/centerpoint_second/varsha2/ckpt/latest_model
+2023-12-03 23:31:14,624   INFO  Train:   32/32 (100%) [6553/6816 ( 96%)]  Loss: 6.834 (7.24)  LR: 5.990e-08  Time cost: 45:13/01:48 [1:33:56/01:48]  Acc_iter 217850      Data time: 0.07(0.05)  Forward time: 0.30(0.36)  Batch time: 0.37(0.41)
+2023-12-03 23:31:32,431   INFO  Train:   32/32 (100%) [6603/6816 ( 97%)]  Loss: 6.636 (7.24)  LR: 4.961e-08  Time cost: 45:31/01:28 [1:34:13/01:28]  Acc_iter 217900      Data time: 0.07(0.05)  Forward time: 0.26(0.36)  Batch time: 0.33(0.41)
+2023-12-03 23:31:49,088   INFO  Train:   32/32 (100%) [6653/6816 ( 98%)]  Loss: 6.671 (7.24)  LR: 4.148e-08  Time cost: 45:47/01:07 [1:34:30/01:07]  Acc_iter 217950      Data time: 0.09(0.05)  Forward time: 0.25(0.36)  Batch time: 0.34(0.41)
+2023-12-03 23:32:07,847   INFO  Train:   32/32 (100%) [6703/6816 ( 98%)]  Loss: 8.877 (7.25)  LR: 3.552e-08  Time cost: 46:06/00:46 [1:34:49/00:46]  Acc_iter 218000      Data time: 0.09(0.05)  Forward time: 0.31(0.36)  Batch time: 0.40(0.41)
+2023-12-03 23:32:28,101   INFO  Train:   32/32 (100%) [6753/6816 ( 99%)]  Loss: 8.383 (7.25)  LR: 3.172e-08  Time cost: 46:26/00:25 [1:35:09/00:25]  Acc_iter 218050      Data time: 0.07(0.05)  Forward time: 0.41(0.36)  Batch time: 0.49(0.41)
+2023-12-03 23:32:50,265   INFO  Train:   32/32 (100%) [6803/6816 (100%)]  Loss: 7.862 (7.25)  LR: 3.007e-08  Time cost: 46:48/00:05 [1:35:31/00:05]  Acc_iter 218100      Data time: 0.08(0.05)  Forward time: 0.36(0.36)  Batch time: 0.44(0.41)
+2023-12-03 23:32:55,472   INFO  Train:   32/32 (100%) [6815/6816 (100%)]  Loss: 7.461 (7.26)  LR: 3.000e-08  Time cost: 46:54/00:00 [1:35:36/00:00]  Acc_iter 218112      Data time: 0.08(0.05)  Forward time: 0.35(0.36)  Batch time: 0.42(0.41)
+2023-12-03 23:32:55,923   INFO  **********************End training waymokitti_models/centerpoint_second(varsha2)**********************
+
+
+
